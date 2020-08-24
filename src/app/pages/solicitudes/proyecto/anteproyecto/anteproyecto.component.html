@@ -1,0 +1,59 @@
+<div id="main-wrapper">
+
+    <div class="container">
+        <h1 id="titulo">ANTEPROYECTO</h1>
+        <p id="titulo-proyecto">TITULO:</p>
+        <a>
+                {{info.modalidad.titulo_proyecto}}
+            </a>
+
+        <p id="Descripcion">DESCRIPCIÓN:</p>
+        El documento debe tener los siguientes aspectos:<br>
+        <div id="descripcion">
+            <a>
+                
+                Integrantes<br>
+                Linea de Investigación<br>
+                Titulo (Debe contener máximo 20 palabras)<br>
+                Introducción (Debe contener máximo 2 hojas)<br>
+                Justificación (Debe contener máximo 1 hoja)<br>
+                Problema (Debe contener máximo 1 hoja)<br>
+                Objetivos generales y especifico (Debe contener máximo 1 hoja)<br>
+                Estado del arte (Debe contener máximo 3 hojas)<br>
+                Referencias <br>
+         
+                    <a id="apa">TODO EL DOCUMENTO DEBE PRESENTARSE CON LAS NORMAS APA</a>
+            </a>
+        </div>
+
+
+
+
+
+        <div id="btn_subir" class="row text-xl-center">
+            <div class="col-lg-6">
+                <label for="imagen2" *ngIf="nombreArchivo == null" class="labels custom-file-upload">
+                            Click aquí para subir el Anteproyecto</label>
+
+                <label for="imagen2" *ngIf="nombreArchivo != null" class="labels custom-file-upload text-center">{{ nombreArchivo }}</label><br>
+                <small>Recuerda que debe ser un archivo PDF, de tamaño menor a 25MB.</small><br>
+
+
+                <input name="imagen2" id="imagen2" (change)="getFile( $event.target.files[0] )" type="file" accept="application/pdf" class="imagenes-secundarias" /> <br> <br>
+
+                <button class="btn-btnSuccess" (click)=" enviarpdf()" style="width: 50%; "><b> Enviar
+                                documento</b></button>
+
+            </div>
+
+
+
+        </div>
+
+
+
+
+    </div>
+    <div class="container-fluid"></div>
+
+</div>

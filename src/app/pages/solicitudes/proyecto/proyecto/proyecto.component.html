@@ -1,0 +1,48 @@
+<div id="main-wrapper">
+    <div class="container">
+        <h1 id="titulo">PROYECTO</h1>
+        <p id="titulo-proyecto">TITULO:</p>
+        <a>
+            {{ info.modalidad.titulo_proyecto }}
+            </a>
+        <p id="Descripcion">DESCRIPCIÓN:</p>
+        <div id="descripcion">
+            <a>
+                El documento debe tener los siguientes aspectos:<br> Contenido<br>
+                 proponentes<br>titulo<br> area o linea de investigacion<br>
+                 antecedentes y justificacion<br>  formulacion del problema <br> 
+                 objetivos generales y especificos<br>
+                 alcance y limitaciones<br> metodologia<br> secuencia y actividades que se desarrollaran<br> 
+                 cronograma<br> recursos costos y fuentes de financiacion <br> Bibliografia basica.
+                 <br>
+                    </a>
+        </div>
+
+
+
+        <div id="btn_subir" class="row text-xl-center">
+            <div class="col-lg-6">
+                <label for="imagen2" *ngIf="nombreArchivo == null" class="labels custom-file-upload">
+                                    Click aquí para subir el Anteproyecto</label>
+
+                <label for="imagen2" *ngIf="nombreArchivo != null" class="labels custom-file-upload text-center">{{ nombreArchivo }}</label><br>
+                <small>Recuerda que debe ser un archivo PDF, de tamaño menor a 25MB.</small><br>
+
+
+                <input name="imagen2" id="imagen2" (change)="getFile( $event.target.files[0] )" type="file" accept="application/pdf" class="imagenes-secundarias" /> <br> <br>
+
+                <button class="btn-btnSuccess" (click)=" enviarpdf()" style="width: 50%; "><b> Enviar
+                                        documento</b></button>
+
+            </div>
+
+
+
+        </div>
+
+
+        <div class="container-fluid"></div>
+
+
+
+    </div>

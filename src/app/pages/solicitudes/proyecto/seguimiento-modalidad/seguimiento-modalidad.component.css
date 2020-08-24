@@ -1,0 +1,211 @@
+#titulo {
+    font-family: "Open Sans";
+    font-size: 32px;
+    text-align: center;
+    font-weight: bold;
+}
+
+#descripcion {
+    text-align: center;
+    margin-left: 12.5%;
+    border: transparent;
+    font-family: "Open Sans";
+    font-size: 22px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    line-height: 26.4px;
+    padding-top: -50%;
+    padding-bottom: -50%;
+}
+
+#Descripcion {
+    text-align: center;
+    padding: 2%;
+    font-family: "Open Sans";
+    font-size: 22px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    line-height: 26.4px
+}
+
+a {
+    font-family: "Open Sans";
+    text-align: justify;
+    font-size: 20px;
+    line-height: 27px;
+    /*margin-left: 8%;
+    margin-right: 8%;
+    */
+}
+
+#static {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    align-items: center;
+    padding-bottom: 20px;
+    font-family: "Open Sans";
+    font-size: 20px;
+}
+
+#tutulo-tutor {
+    padding-top: 5%;
+}
+
+hr {
+    margin-top: 1%;
+    width: 95%;
+}
+
+.card {
+    padding: 10px;
+    border: #999 1px solid;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+}
+
+.page-wrapper {
+    padding-right: 10%;
+}
+
+b {
+    text-align: center;
+    font-family: "Open Sans";
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 26.4px
+}
+
+.sinborde {
+    text-align: left;
+    border: 0;
+    display: inline;
+    align-items: top;
+    padding-top: 0px;
+    padding-bottom: 20px;
+}
+
+label {
+    font-family: "Open Sans";
+    font-size: 20px;
+    font-weight: bold;
+}
+
+table {
+    width: 90%;
+    border: 1px solid #999;
+    text-align: center;
+    border-collapse: collapse;
+    margin: 0 auto;
+    caption-side: top;
+    font-family: "Open Sans";
+    font-size: 20px;
+    font-style: normal;
+    font-variant: normal;
+}
+
+#fase {
+    font-weight: bold;
+}
+
+caption,
+td,
+th {
+    padding: 0.3%;
+}
+
+th {
+    text-align: center;
+    font-weight: bold;
+}
+
+th,
+td {
+    border-right: 1px solid #999;
+}
+
+th {
+    border-bottom: 1px solid #999;
+}
+
+tfoot th,
+tfoot td {
+    border-bottom: 0;
+    text-align: center;
+}
+
+th {
+    width: 25%;
+}
+
+body {
+    margin: 20;
+    padding: 100px;
+}
+
+h2 {
+    font-size: 36px;
+    margin: 0 0 10px 0
+}
+
+p {
+    margin: 0 0 10px 0
+}
+
+@media only screen and (max-width: 760px),
+(min-width: 768px) and (max-width: 1024px) {
+    table.width200,
+    .width200 thead,
+    .width200 tbody,
+    .width200 th,
+    .width200 td,
+    .width200 tr {
+        display: block;
+    }
+    table {
+        font-size: 19px;
+    }
+    #fase {
+        text-align: center;
+    }
+    .width200 thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    .width200 tr {
+        border: 1px solid #ccc;
+    }
+    .width200 td {
+        border: none;
+        border-bottom: 1px solid #ccc;
+        position: relative;
+        padding-left: 50%;
+        text-align: left
+    }
+    .width200 td:before {
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+    }
+    .width200 td:nth-of-type(1):before {
+        content: "Fase";
+    }
+    .width200 td:nth-of-type(2):before {
+        content: "N° Radicado";
+    }
+    .width200 td:nth-of-type(3):before {
+        content: "Estado";
+    }
+    .width200 td:nth-of-type(4):before {
+        content: "Fecha";
+    }
+    .descarto {
+        display: none;
+    }
+}

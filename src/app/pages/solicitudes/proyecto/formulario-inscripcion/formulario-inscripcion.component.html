@@ -1,0 +1,221 @@
+<div id="main-wrapper">
+    <!--navbar-->
+    <app-navbar></app-navbar>
+    <!--// sidebar  -->
+    <app-sidebar></app-sidebar>
+    <div class="page-wrapper">
+
+        <br><br><br>
+        <h1 id="titulo"> FORMULARIO DE INSCRIPCIÓN</h1>
+        <br><br>
+        <form ngNativeValidate #f="ngForm" (ngSubmit)="postSolicitud(f)" class="form-horizontal" id="loginform">
+            <!-- primera linea formulario-->
+            <!-- estudiante principal -->
+            <div id="datos" class="form-group row"><br>
+                <div id="datospersonales1" class="form-group row">
+                    <label>Nombre completo</label>
+                    <div class="col-sm">
+                        <input id="staticnombre" class="form-control form-control-sm" type="text" value="{{info.nombres}} {{ info.apellidos }}" disabled>
+                    </div>
+
+                    <label id="codigo1">Código</label>
+                    <div class="col-sm">
+                        <input id="staticodigo" class="form-control form-control-sm" type="text" value="{{info.codigo}}" disabled>
+                    </div>
+
+
+                    <label>Identificación</label>
+                    <div class="col-sm">
+                        <input id="identificacion" class="form-control form-control-sm w-100" type="text" value="{{info.identificacion}}" disabled>
+                    </div>
+                    <br>
+                </div>
+
+
+                <div id="datospersonales2" class="form-group row">
+                    <label>Programa académico</label>
+                    <div class="col-sm">
+                        <input id="staticprograma" class="form-control form-control-sm" type="text" value="{{ programa }}" disabled>
+                    </div>
+
+                    <label id="correo">Correo electrónico</label>
+                    <div class="col-sm">
+                        <input id="staticcorreo" class="form-control form-control-sm ml-1" type="text" value="{{ info.correo }}" disabled>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <!-- agregar intengrantes -->
+
+            <!-- estudiante 2-->
+
+            <div id="Mostrar_integrante2" class="form-group row">
+
+                <h5 id="estudiante2">estudiante 2</h5>
+                <div id="datospersonales1" class="form-group row">
+                    <label>Nombre completo</label>
+                    <div class="col-sm">
+                        <input ngModel name="nombreEst2" id="staticnombre" class="form-control form-control-sm" type="text">
+                    </div>
+
+                    <label id="codigo1">Código</label>
+                    <div class="col-sm">
+                        <input ngModel name="codigoEst2" id="staticodigo" class="form-control form-control-sm" type="text">
+                    </div>
+
+
+                    <label>Identificación</label>
+                    <div class="col-sm">
+                        <input ngModel name="identificacionEst2" id="identificacion" class="form-control form-control-sm w-100" type="text">
+                    </div>
+                    <br>
+                </div>
+
+
+                <div id="datospersonales2" class="form-group row">
+                    <label>Programa académico</label>
+                    <div class="col-sm">
+                        <input ngModel name="programaEst2" id="staticprograma" class="form-control form-control-sm" type="text">
+                    </div>
+
+                    <label id="correo">Correo electrónico</label>
+                    <div class="col-sm">
+                        <input ngModel name="correoEst2" id="staticcorreo" class="form-control form-control-sm ml-1" type="text">
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- estudiante 3 -->
+
+            <div id="Mostrar_integrante3" class="form-group row">
+                <h5 id="estudiante2">estudiante 3</h5>
+                <div id="datospersonales1" class="form-group row">
+                    <label>Nombre completo</label>
+                    <div class="col-sm">
+                        <input ngModel name="nombreEst3" id="staticnombre" class="form-control form-control-sm" type="text">
+                    </div>
+
+                    <label id="codigo1">Código</label>
+                    <div class="col-sm">
+                        <input ngModel name="codigoEst3" id="staticodigo" class="form-control form-control-sm" type="text">
+                    </div>
+
+
+                    <label>Identificación</label>
+                    <div class="col-sm">
+                        <input ngModel name="identificacionEst3" id="identificacion" class="form-control form-control-sm w-100" type="text">
+                    </div>
+                    <br>
+                </div>
+
+
+                <div id="datospersonales2" class="form-group row">
+                    <label>Programa académico</label>
+                    <div class="col-sm">
+                        <input ngModel name="programaEst3" id="staticprograma" class="form-control form-control-sm" type="text">
+                    </div>
+
+                    <label id="correo">Correo electrónico</label>
+                    <div class="col-sm">
+                        <input ngModel name="correoEst3" id="staticcorreo" class="form-control form-control-sm ml-1" type="text">
+                    </div>
+
+                </div>
+            </div>
+            <!--    -->
+
+            <br>
+
+
+
+
+            <!-- linea separadora -->
+            <hr>
+            <!-- cuarta linea formulario-->
+            <div id="datosproyecto" class="form-group row "><br>
+                <div class="form-group col-md-2"><label>TITULO DEL PROYECTO</label>
+                </div>
+                <div class="form-group col-md-10">
+                    <input ngModel name="tituloProyecto" type="text" class="form-control" id="tituloProyecto" placeholder="título del proyecto" required></div>
+
+            </div>
+            <!-- quinta linea formulario-->
+            <div id="datosproyecto" class=" form-row ">
+                <div class="form-group col-md-2"><label>LINEA DE INVESTIGACIÓN</label>
+                </div>
+                <div class="form-group col-md-10 ">
+                    <select ngModel name="lineaInvestigacion" id="inputState " class="form-control " required>
+                    <option value="INGENIERÍA DE SOFTWARE"selected>INGENIERÍA DE SOFTWARE</option>
+                    <option>INTERNET DE LAS COSAS </option>
+                    <option>INTELIGENCIA ARTIFICIAL</option>
+                  </select></div>
+
+            </div>
+            <!-- sexta linea formulario-->
+            <div id="datosproyecto" class=" form-row ">
+                <div class="form-group col-md-2"><label>SOLICITUD DIRECTOR DE PROYECTO</label>
+                </div>
+                <div class="form-group col-md-10 ">
+                    <select ngModel name="directorProyecto" id="inputState" class="form-control " required>
+                    <option value="JHON JAIRO TRUJILLO" selected>JHON JAIRO TRUJILLO</option>
+                    <option>FERNANDO ROJAS</option>
+                    <option>EURIPIDES TRIANA</option>
+                    <option>JUAN CASTRO</option>
+                    
+                  </select></div>
+
+            </div>
+
+            <!-- segunda linea separadora -->
+            <hr>
+            <!-- septima linea formulario-->
+            <div class="align-self-center text-center m-5">
+                <div class="m-5">
+                    <label for="formGroupExampleInput ">FORMULACION DEL PROBLEMA</label>
+                    <textarea ngModel name="problema" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="ESCRIBE UNA BREVE INTRODUCCION SOBRE LA FORMULACIÓN DEL PROBLEMA" required></textarea>
+                </div>
+                <!-- octava linea formulario-->
+                <div class="m-5">
+                    <label for="formGroupExampleInput2 ">ALCANCE Y LIMITACIONES</label>
+                    <textarea ngModel name="alcance" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="ESCRIBE UNA BREVE INTRODUCCION SOBRE EL ALCANCE Y LIMITACIONES" required></textarea>
+                </div>
+                <!-- novena linea formulario-->
+                <div class="m-5">
+                    <label for="formGroupExampleInput2 ">METODOLOGIA</label>
+                    <textarea ngModel name="metodologia" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="ESCRIBE UNA BREVE INTRODUCCION SOBRE LA METODOLOGÓIA DEL PROBLEMA" required></textarea>
+                </div>
+            </div>
+            <!-- boton enviar formulario-->
+            <div class="col v-center">
+                <button id="btnenviar" class="btn btn-danger d-block mx-auto"> ENVIAR </button>
+            </div>
+
+        </form>
+
+
+        <!-- ------------------------------------------------>
+
+
+
+        <br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br>
+        <!-- footer -->
+        <footer class="footer">
+            <article class="centro txtcenter">
+                <figure class="figure"><img src="https://www.usco.edu.co/imagen-institucional/logo/universidad-surcolombiana.png" alt="Universidad Surcolombian" title="Universidad Surcolombian"></figure>
+                <p><strong>Institución de Educación Superior sujeta a inspección y vigilancia del Ministerio de Educación Nacional</strong></p>
+                <p>NIT: 891180084-2<br> Horario de atención al público:<br> Lunes a viernes de 8:00 a.m. a 12:00 m. y de 2:00 p.m. a 6:00 p.m.<br> Línea Gratuita Nacional: 018000 968722<br>
+                    <a>Notificaciones Judiciales</a>: notificacionesjudiciales@usco.edu.co</p>
+            </article>
+
+        </footer>
+
+
+    </div>
+    <div class="container-fluid">
+
+    </div>
+</div>

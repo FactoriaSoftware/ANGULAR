@@ -1,0 +1,123 @@
+<div id="main-wrapper">
+
+
+    <div id="container" class="container">
+
+        <p id="titulo"> PROYECTO DE GRADO</p>
+        <br>
+        <div class="card">
+            <div id="tutulo-tutor" class="container text-center  d-flex justify-content-center">
+                <label>Titulo del proyecto:</label>
+                <div class="d-flex">
+
+                    <input id="static" class=" sinborde" type="text" value=" &nbsp;  {{ info.modalidad.titulo_proyecto }}" disabled>
+                </div>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label>Tutor Asignado:</label>
+                <div class="d-flex">
+                    <input id="static" class="sinborde" type="text" value="&nbsp; {{info.modalidad.director_proyecto}}" disabled>
+                </div>
+            </div>
+
+            <div id="descripcion" class="card w-75">
+                <div class="card-body">
+
+                    <div class="row p-t-20" style="padding-left: 15px;" te>
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label for="exampleInputuname">nombre de integrantes</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                                    <input type="text" class="form-control" id="exampleInputuname" value="{{info.nombres}}  {{info.apellidos}} " disabled>
+                                </div>
+
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                                    <input type="text" class="form-control" id="exampleInputuname" value="{{info.modalidad.nombreEst2}}" disabled>
+                                </div>
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                                    <input type="text" class="form-control" id="exampleInputuname" value="{{info.modalidad.nombreEst3}}" disabled>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row p-t-0" style="padding-left: 15px;" te>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="exampleInputuname">linea de investigación</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon"><img id="icon" src="assets/svg/science.svg"></div>
+                                    <input type="text" class="form-control" id="exampleInputuname" value="{{info.modalidad.linea_investigacion}}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="exampleInputuname">fecha de aprobación de inscripción</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon"><img id="icon" src="assets/svg/calendar.svg"></div>
+                                    <input type="text" class="form-control" id="exampleInputuname" value="{{info.modalidad.fecha}}">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <p id="titulo"> SEGUIMIENTO </p>
+            </div>
+
+            <hr/>
+
+
+            <table class="width200">
+
+                <thead>
+                    <tr>
+                        <th>Fase</th>
+                        <th>Estado</th>
+                        <th>Fecha</th>
+                        <th>Aprobado por</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td id="fase">Formulario Inscripción</td>
+                        <td>{{info.modalidad.estado}}</td>
+                        <td>{{info.modalidad.fecha}}</td>
+                        <td>{{info.modalidad.director_proyecto}}</td>
+
+                    </tr>
+                    <tr>
+                        <td id="fase">Anteproyecto</td>
+                        <td>{{info.modalidad.estado_anteproyecto}}</td>
+                        <td>{{info.modalidad.fechaAnte}}</td>
+                        <td>{{info.modalidad.director_proyectoAnte}}</td>
+
+                    </tr>
+                    <tr>
+                        <td id="fase">Proyecto</td>
+                        <td>{{info.modalidad.estadoProy}}</td>
+                        <td>{{info.modalidad.fechaProy}}</td>
+                        <td>{{info.modalidad.director_proyectoProy}}</td>
+
+                    </tr>
+                    <tr>
+                        <td id="fase">Documento final</td>
+                        <td>{{info.modalidad.estadoDoc}}</td>
+                        <td>{{info.modalidad.fechaDoc}}</td>
+                        <td>{{info.modalidad.director_proyectoDoc}}</td>
+
+                    </tr>
+
+                </tbody>
+            </table>
+
+            <br>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,167 @@
+#titulo {
+    font-family: "Open Sans";
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#aggIntegrantes {
+    padding: 1%;
+}
+
+#datos {
+    padding-top: 2%;
+    margin-left: 70px;
+    margin-right: 70px;
+    border: rgb(210, 210, 210) 2px solid;
+    border-radius: 10px;
+}
+
+#Mostrar_integrante2 {
+    padding-top: 2%;
+    margin-left: 70px;
+    margin-right: 70px;
+    border: rgb(210, 210, 210) 2px solid;
+    border-radius: 10px;
+}
+
+#Mostrar_integrante3 {
+    padding-top: 2%;
+    margin-left: 70px;
+    margin-right: 70px;
+    border: rgb(210, 210, 210) 2px solid;
+    border-radius: 10px;
+}
+
+#datospersonales1 {
+    padding: -5%;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+#datospersonales2 {
+    padding-top: 2%;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+#estudiante2 {
+    padding: 1%;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: "Open Sans";
+    font-size: 18px;
+    font-weight: 100;
+}
+
+#datosproyecto {
+    margin-left: 30px;
+    margin-right: 70px;
+}
+
+label {
+    font-family: "Open Sans";
+    font-size: 21px;
+    font-weight: 100;
+}
+
+#staticnombre {
+    width: 100px;
+    margin-left: 25px;
+}
+
+#codigo {
+    margin-left: -90px;
+}
+
+#codigo1 {
+    margin-left: 65px;
+    font-family: "Open Sans";
+    font-size: 21px;
+    font-weight: 100;
+}
+
+.form-control {
+    text-align: center;
+}
+
+p {
+    align-content: center;
+}
+
+#btn_search {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+#identificacion {
+    width: 21%;
+}
+
+#programa {
+    width: 150%;
+}
+
+#staticnombre {
+    width: 130%;
+    margin-left: 2px;
+}
+
+#staticnombre2 {
+    width: 5%;
+}
+
+#staticcorreo {
+    width: 150%;
+}
+
+#staticprograma {
+    width: 150%;
+    margin-left: -2px;
+}
+
+#correo {
+    margin-left: 10%;
+}
+
+#btnenviar {
+    background-color: #8F141B;
+    border-color: #8F141B;
+    color: #ffffff;
+}
+
+hr {
+    margin-top: 30;
+    width: 95%;
+}
+
+footer {
+    text-align: center;
+}
+
+@media only screen and (max-width: 760px),
+(min-width: 768px) and (max-width: 1024px) {
+    #identificacion {
+        width: 100%;
+        margin-left: -10px;
+    }
+    #staticnombre {
+        margin-left: -10px;
+    }
+    #staticnombre2 {
+        width: 5%;
+    }
+    #staticnombre {
+        width: 105%;
+    }
+    #staticcorreo {
+        width: 85%;
+    }
+    #staticprograma {
+        width: 107%;
+        margin-left: -10px;
+    }
+    #staticintegrante {
+        margin-left: 0px;
+    }
+}
