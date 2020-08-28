@@ -16,7 +16,7 @@
                                     <div class="row" style="margin-top: 15px; margin-left: 10px;">
                                         <div class="col-lg-1">
                                             <div class="vacantesImg text-center">
-                                                <p class="text-center text-uppercase">{{formulario?.titulo_proyecto[0]}}</p>
+                                                <p class="text-center">{{ letra }}</p>
                                             </div>
                                         </div>
                                         <div class="col-lg-8">
@@ -117,7 +117,7 @@
                                         </div>
 
                                     </div>
-
+                                    <!---->
                                     <div class="row">
                                         <div class="col-12">
                                             <label class="control-label">
@@ -172,7 +172,7 @@
                     <ng-container>
                         <div class="col-lg-1">
                             <div class="vacantesImg text-center">
-                                <p class="text-center text-uppercase">{{dato?.titulo_proyecto[0]}}</p>
+                                <p class="text-center"></p>
                             </div>
                         </div>
                         <div class="col-lg-5">
@@ -180,29 +180,30 @@
                                 <h5 class="text-uppercase"> <b>{{ dato.estudiante.nombres }}
                                             {{ dato.estudiante.apellidos }}</b></h5>
                                 <small style="margin-top: -50px;"><i class="fa fa-briefcase"></i> &nbsp;
-                                    {{dato?.titulo_proyecto}}
+                                    {{formulario?.titulo_proyecto}}
                                     </small><br>
-                                <small><i class="fa fa-file-pdf-o"></i>&nbsp;
-                                        &nbsp;{{dato.estado}}
-                                    </small> <br>
+                                <!-- <small><i class="fa fa-file-pdf-o"></i>&nbsp;
+                                        &nbsp;{{dato.documento_propuesta}}
+                                    </small> <br>-->
                             </div>
                         </div>
 
                         <div class="col-lg-4">
 
                             <h5 class="text-uppercase"><b>Estado :</b></h5>
-                            <ng-container *ngIf="dato?.estado =='Enviada'" class="text-success">
-                                <span class="label btnInfo"> <b> {{ dato?.estado }} </b></span>
+                            <ng-container *ngIf="dato.formulario?.estado == 'Enviada'" class="text-success">
+                                <span class="label btnInfo"> <b> {{ dato.estado }} </b></span>
                             </ng-container>
 
-                            <ng-container *ngIf="dato?.estado == 'Aprobada'" class="text-success">
-                                <span class="label btnSuccess"> <b> {{ dato?.estado }} </b></span>
+                            <ng-container *ngIf="dato.estado == 'Aprobada'" class="text-success">
+                                <span class="label btnSuccess"> <b> {{ dato.estado }} </b></span>
                             </ng-container>
 
-                            <ng-container *ngIf="dato?.estado == 'Rechazada'" class="text-success">
-                                <span class="label btnDanger"> <b> {{ dato?.estado }} </b></span>
+                            <ng-container *ngIf="dato.estado == 'Rechazada'" class="text-success">
+                                <span class="label btnDanger"> <b> {{ dato.estado }} </b></span>
                             </ng-container>
                             <br>
+
                         </div>
 
                         <div class="col-lg-2">
@@ -212,7 +213,7 @@
                                             <i class="fa fa-info-circle"></i></b></button>
                             </div>
                         </div>
-                    </ng-container><br><br><br><br>
+                    </ng-container>
                 </ng-container>
 
             </div>

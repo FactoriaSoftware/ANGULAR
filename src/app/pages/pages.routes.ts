@@ -14,6 +14,9 @@ import { ProyectoComponent } from './solicitudes/proyecto/proyecto/proyecto.comp
 import { DocFinalComponent } from './solicitudes/proyecto/doc-final/doc-final.component';
 import { SustentacionComponent } from './solicitudes/proyecto/sustentacion/sustentacion.component';
 import { FormProyectoComponent } from './solicitudes/admin/form-proyecto/form-proyecto.component';
+import { AdminAnteproyectoComponent } from './solicitudes/admin/admin-anteproyecto/admin-anteproyecto.component';
+import { AdminProyectoComponent } from './solicitudes/admin/admin-proyecto/admin-proyecto.component';
+import { AdminDocFinalComponent } from './solicitudes/admin/admin-doc-final/admin-doc-final.component';
 
 
 
@@ -38,6 +41,9 @@ const pagesRoutes: Routes = [
             {path: 'documento-final', component: DocFinalComponent, data: { titulo: 'anteproyecto'},canActivate:[LoginGuardGuard]},
             {path: 'sustentacion', component: SustentacionComponent, data: { titulo: 'sustentacion'},canActivate:[LoginGuardGuard]},
             {path: 'formulario', component: FormProyectoComponent, data: { titulo: 'formulario'},canActivate:[LoginGuardGuard]},
+            {path: 'Admin-anteproyecto', component: AdminAnteproyectoComponent, data: { titulo: 'formulario'},canActivate:[LoginGuardGuard]},
+            //{path: 'formulario', component: FormProyectoComponent, data: { titulo: 'formulario'},canActivate:[LoginGuardGuard]},
+            //{path: 'formulario', component: FormProyectoComponent, data: { titulo: 'formulario'},canActivate:[LoginGuardGuard]},
 
             { path: '', redirectTo: '/panel-principal', pathMatch: 'full'}
         ]

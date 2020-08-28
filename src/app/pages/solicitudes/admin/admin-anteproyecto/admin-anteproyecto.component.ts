@@ -10,10 +10,10 @@ import { TutoresService } from 'src/app/services/tutores/tutores.service';
 
 @Component({
   selector: 'app-form-proyecto',
-  templateUrl: './form-proyecto.component.html',
-  styleUrls: ['./form-proyecto.component.css']
+  templateUrl: './admin-anteproyecto.component.html',
+  styleUrls: ['./admin-anteproyecto.component.css']
 })
-export class FormProyectoComponent implements OnInit {
+export class AdminAnteproyectoComponent implements OnInit {
   formulario: Solicitud;
   info: any;
   solicitudes: any[];
@@ -42,16 +42,27 @@ export class FormProyectoComponent implements OnInit {
   codigoEst: string;
   idEst: string;
   correoEst: string;
+  
+ 
 
   proyectos: any[];
   
+
   preInscripcion: any;
  
+ 
+ 
+
+  
+
+
+
+
   constructor(public proyectoGradoService : ProyectoGradoService, public _tutoresService: TutoresService) { }
+
   ngOnInit(): void {
     this.info = JSON.parse(localStorage.getItem("estudiante"));
     this.getSolicitudes();
-    this.getTutores();
   }
 
 
@@ -69,10 +80,9 @@ export class FormProyectoComponent implements OnInit {
 
     }).then((result) => {
       if (result.value) {
-        console.log(form)
 
         let solicitud = new Solicitud (null,null,null,null,null,null,null,null,null,null,null,null,null,null,
-          null,null,form.value.tutor,null,null,null,null,null,null,null,null,null,form.value.notas,form.value.estado)
+          null,null,null,null,null,null,null,null,null,null,null,form.value.notas,form.value.estado)
         this.proyectoGradoService.putSolicitud(this._id, solicitud).subscribe();
 
       }
@@ -91,7 +101,7 @@ export class FormProyectoComponent implements OnInit {
   getDataInfo(data: any) {
 
     this.formulario = data;
-  
+    
     this._id = data._id;
     this.estado = data.estado
     this.notas = data.notas;
@@ -104,7 +114,7 @@ export class FormProyectoComponent implements OnInit {
       this.tutorApellidos = data.tutor.apellidos;
     }
 
-  
+    
     this.idEst = data.estudiante._id;
     this.nombreEst = data.estudiante.nombres;
     this.apellidoEst = data.estudiante.apellidos;
@@ -120,7 +130,6 @@ export class FormProyectoComponent implements OnInit {
     let idPrograma = data.programa._id;
     this._tutoresService.getTutores(idPrograma).subscribe((resp: any) => {
       this.tutores = resp.admins;
-      console.log(resp)
     });
   }
 

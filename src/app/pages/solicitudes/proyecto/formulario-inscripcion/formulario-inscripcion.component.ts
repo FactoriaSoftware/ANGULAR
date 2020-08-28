@@ -23,6 +23,7 @@ export class FormularioInscripcionComponent implements OnInit {
     public _programaService: ProgramaService,
     public router: Router,
     public _solicitudService: ProyectoGradoService,
+   // public _tutoresService: TutoresService
 
   ) { }
 
@@ -30,6 +31,7 @@ export class FormularioInscripcionComponent implements OnInit {
     init_plugins();
     this.getPrograma();
     this.setInfo();
+   // this.getTutores();
 
   }
   // Obtenemos el programa y lo pasamos a la variable Programa
@@ -53,7 +55,15 @@ export class FormularioInscripcionComponent implements OnInit {
       this.info = JSON.parse(administrativo);
     }
   }
-
+  /*
+  getTutores() {
+    let data = JSON.parse(localStorage.getItem('administrativo'));
+    let idPrograma = data.programa._id;
+    this._tutoresService.getTutores(idPrograma).subscribe((resp: any) => {
+      this.tutores = resp.admins;
+      console.log(resp)
+    });
+  }*/
   postSolicitud(form: NgForm){
     let idEstudiante = localStorage.getItem("id")
 

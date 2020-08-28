@@ -7,3 +7,21 @@
 .pointer {
     cursor: pointer;
 }
+
+.btnInfo {
+    background-color: #DFD4A6;
+    border-color: #DFD4A6;
+    color: #8F141B;
+}
+
+.btnSuccess {
+    background-color: #8F141B;
+    border-color: #8F141B;
+    color: #DFD4A6;
+}
+
+.btnDanger {
+    background-color: #4D626C;
+    border-color: #4D626C;
+    color: white;
+}

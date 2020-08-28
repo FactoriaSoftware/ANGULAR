@@ -13,6 +13,7 @@ export class SidebarComponent implements OnInit {
   menuEstudiante: any[];
   menuAdmin: any[];
   EstadoPreInsc: string;
+  noProyecto: string;
   EstadoAnte: string;
   EstadoProy: string;
   EstadoDoc: string;
@@ -38,7 +39,11 @@ export class SidebarComponent implements OnInit {
   getMenu() {
     if (localStorage.getItem('estudiante')){
       this.menuEstudiante = this.SidebarService.menuEstudiante;
-    }else{
+      
+      this.EstadoPreInsc = JSON.parse(localStorage.getItem('estudiante')).modalidad.estado;
+      this.noProyecto = JSON.parse(localStorage.getItem('estudiante')).modalidad
+
+    }else {
       this.menuAdmin = this.SidebarService.menuAdmin;
     }
   }

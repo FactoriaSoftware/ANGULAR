@@ -1,123 +1,836 @@
-<div id="main-wrapper">
-
-
-    <div id="container" class="container">
-
-        <p id="titulo"> PROYECTO DE GRADO</p>
-        <br>
+<div class="row">
+    <div class="col-12">
         <div class="card">
-            <div id="tutulo-tutor" class="container text-center  d-flex justify-content-center">
-                <label>Titulo del proyecto:</label>
-                <div class="d-flex">
+            <div class="card-body">
 
-                    <input id="static" class=" sinborde" type="text" value=" &nbsp;  {{ info.modalidad.titulo_proyecto }}" disabled>
+                <h3 class="card-title text-uppercase"><b> Mi Modalidad de grado </b></h3>
+                <h5 class="text-uppercase"> <b> Tutor Asignado: </b></h5>
+                <ng-container *ngIf="proyectogrado.tutor == null" class="text-success">
+                    <span class="label btnDanger" style="margin-top: -3px;">
+                        <b> No asignado </b></span><br>
+                </ng-container>
+
+                <ng-container *ngIf="proyectogrado.tutor" class="text-success">
+                    <span class="label btnSuccess" style="margin-top: -25px;">
+                        <b> {{proyectogrado?.tutor.nombres}} {{proyectogrado?.tutor.apellidos}}</b></span><br>
+                </ng-container><br>
+                <hr style="margin-top: 0px;">
+
+                <!-- ============================================================== -->
+                <!--                        MODAL INFO                              -->
+                <!-- ============================================================== -->
+
+                <div class="col-md-3" *ngIf="proyectogrado">
+                    <div class="modal fade modal-info" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+
+                                <div class="modal-body">
+
+                                    <div class="row" style="margin-top: 15px; margin-left: 10px;">
+                                        <div class="col-lg-1">
+                                            <div class="vacantesImg text-center">
+                                                <p class="text-center text-uppercase">{{proyectogrado?.titulo_proyecto[0]}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <div class="vacantesInfo">
+                                                <h5 class="text-uppercase"> <b></b>{{proyectogrado?.titulo_proyecto}}</h5>
+                                                <small style="margin-top: -50px;"><i class="fa fa-user"></i> &nbsp;
+                                                    {{ nombreEst }} {{apellidoEst}}
+                                                </small><br>
+                                                <small><i class="fa fa-user"></i>&nbsp;
+                                                    &nbsp;{{proyectogrado?.nombreEst2}}
+                                                </small> <br>
+                                                <small><i class="fa fa-user"></i>&nbsp; &nbsp;{{proyectogrado?.nombreEst3}}
+                                                </small>
+                                            </div>
+                                        </div>
+                                    </div> <br>
+
+                                    <div class="row" style=" margin-top: 15px; margin-left: 25px;">
+                                        <h5 class="text-uppercase"> <b>ID de la solicitud:</b> </h5>
+                                        <p class="text-justify" style="margin-top: -3px;">&nbsp; {{_id}}</p>
+                                    </div>
+
+                                    <div class="row" style="margin-left: 25px;">
+                                        <h5 class="text-uppercase"> <b>Información del estudiante:</b> </h5>
+                                    </div>
+
+                                    <div class="row" style="margin-top: -3px; margin-left: 25px;">
+                                        <i class="fa fa-id-card"></i> &nbsp; &nbsp;<small class="text-justify">
+                                            {{codigoEst}}</small>
+                                    </div>
+                                    <div class="row" style="margin-left: 25px;">
+                                        <i class="fa fa-id-card-o"></i> &nbsp; &nbsp;<small class="text-justify">
+                                            {{idEst}}</small>
+                                    </div>
+
+                                    <div class="row" style="margin-top: -3px; margin-left: 25px;">
+                                        <i class="mdi mdi-email"></i> &nbsp; &nbsp;<small class="text-justify">
+                                            {{correoEst}}</small>
+                                    </div>
+                                    <div class="row" style="margin-left: 25px;">
+                                        <i class="fa  fa-phone"></i> &nbsp; &nbsp;<small class="text-justify">
+                                            {{telefonoEst}}</small>
+                                    </div>
+                                    <br>
+
+
+                                    <div class="row" style="margin-left: 10px;">
+
+                                        <div class="col-md-4">
+                                            <h5 class="text-uppercase"> <b>Estado:</b> </h5>
+                                            <ng-container *ngIf="proyectogrado.estado == 'Enviada'" class="text-success">
+                                                <span class="label btnInfo"> <b> {{ proyectodegrado?.estado }} </b></span>
+                                            </ng-container>
+
+                                            <ng-container *ngIf="proyectogrado.estado == 'Aprobada'" class="text-success">
+                                                <span class="label btnSuccess"> <b> {{ proyectodegrado?.estado }} </b></span>
+                                            </ng-container>
+
+                                            <ng-container *ngIf="proyectogrado.estado == 'Rechazada'" class="text-success">
+                                                <span class="label btnDanger"> <b> {{ proyectodegrado?.estado }} </b></span>
+                                            </ng-container>
+                                        </div>
+
+
+                                        <div class="col-md-8">
+                                            <div class="form-group">
+                                                <h5 class="text-uppercase"> <b>Notas:</b> </h5>
+                                                <p class="text-justify">{{notas}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br><br>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btnSuccess waves-effect text-left" data-dismiss="modal">Cerrar <i class="fa fa-times"></i></button>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
                 </div>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <label>Tutor Asignado:</label>
-                <div class="d-flex">
-                    <input id="static" class="sinborde" type="text" value="&nbsp; {{info.modalidad.director_proyecto}}" disabled>
-                </div>
-            </div>
 
-            <div id="descripcion" class="card w-75">
-                <div class="card-body">
+                <!-- ============================================================== -->
+                <!--                   MODAL PROPUESTA                              -->
+                <!-- ============================================================== -->
+                <div class="col-md-3" *ngIf="proyectogrado?.documento_propuesta">
+                    <div class="modal fade modal-propuesta" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
 
-                    <div class="row p-t-20" style="padding-left: 15px;" te>
-                        <div class="col-lg-12">
-                            <div class="form-group">
-                                <label for="exampleInputuname">nombre de integrantes</label>
-                                <div class="input-group">
-                                    <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                                    <input type="text" class="form-control" id="exampleInputuname" value="{{info.nombres}}  {{info.apellidos}} " disabled>
+                                <div class="modal-body">
+
+                                    <div class="row" style="margin-top: 15px; margin-left: 10px;">
+                                        <div class="col-lg-1">
+                                            <div class="vacantesImg text-center">
+                                                <p class="text-center">{{ letra }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <div class="vacantesInfo">
+                                                <h5 class="text-uppercase"> <b>{{ nombreEst }} {{apellidoEst}}</b></h5>
+                                                <small style="margin-top: -50px;"><i class="fa fa-briefcase"></i> &nbsp;
+                                                    {{titulo}} - {{empresa}}
+                                                </small><br>
+                                                <small><i class="fa fa-globe"></i>&nbsp;
+                                                    &nbsp;{{ubicacion}}, {{modalidad}}
+                                                </small> <br>
+                                                <small><i class="fa fa-code"></i>&nbsp; &nbsp;{{funciones}}
+                                                </small>
+                                            </div>
+                                        </div>
+                                    </div> <br>
+
+                                    <div class="row" style=" margin-top: 15px; margin-left: 25px;">
+                                        <h5 class="text-uppercase"> <b>ID de la solicitud:</b> </h5>
+                                        <p class="text-justify" style="margin-top: -3px;">&nbsp; {{_id}}</p>
+                                    </div>
+
+                                    <div class="row" style="margin-left: 25px;">
+                                        <h5 class="text-uppercase"> <b>Documento de Propuesta de Pasantía:</b> </h5>
+                                    </div>
+
+                                    <div class="row" style="margin-top: -3px; margin-left: 25px;">
+                                        <i class="fa fa-file-pdf-o"></i> &nbsp; &nbsp;<small class="text-justify">
+                                            {{proyectodegrado?.documento_propuesta</small>
+                                    </div>
+
+                                    <div class="row" style=" margin-top: 15px; margin-left: 25px;">
+                                        <h5 class="text-uppercase"> <b>Tutor de Pasantía:</b> </h5>
+                                    </div>
+
+                                    <ng-container *ngIf="!proyectogrado?.tutor">
+                                        <div class="row" style="margin-left: 25px; margin-top: 0px;">
+                                            <p class="text-justify"> <b>No Asignado Aún</b></p>
+                                        </div>
+                                    </ng-container>
+
+                                    <ng-container *ngIf="proyectogrado?.tutor">
+                                        <div class="row" style="margin-left: 25px; margin-top: 0px;">
+                                            <p class="text-justify"> <b>{{proyectogrado.tutor.nombres}}
+                                                    {{proyectogrado?.tutor.apellidos}}</b></p>
+                                        </div>
+                                    </ng-container>
+
+
+                                    <div class="row" style="margin-left: 10px;">
+
+                                        <div class="col-md-4">
+                                            <h5 class="text-uppercase"> <b>Estado de la Propuesta:</b> </h5>
+                                            <ng-container *ngIf="proyectogrado.estado_anteproyecto == 'Enviada'" class="text-success">
+                                                <span class="label btnInfo"> <b> {{ proyectodegrado?.estado_propues
+                                                    </b></span>
+                                            </ng-container>
+
+                                            <ng-container *ngIf="proyectogrado.estado_anteproyecto == 'Aprobada'" class="text-success">
+                                                <span class="label btnSuccess"> <b> {{ proyectodegrado?.estado_propues
+                                                    </b></span>
+                                            </ng-container>
+
+                                            <ng-container *ngIf="proyectogrado.estado_anteproyecto == 'Rechazada'" class="text-success">
+                                                <span class="label btnDanger"> <b> {{ proyectodegrado?.estado_propues
+                                                    </b></span>
+                                            </ng-container>
+                                        </div>
+
+
+                                        <div class="col-md-8">
+                                            <div class="form-group">
+                                                <h5 class="text-uppercase"> <b>Notas:</b> </h5>
+                                                <p class="text-justify">{{proyectodegrado?.notas_propues</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btnSuccess waves-effect text-left" data-dismiss="modal">Cerrar <i class="fa fa-times"></i></button>
+                                    </div>
+
                                 </div>
-
-                                <div class="input-group">
-                                    <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                                    <input type="text" class="form-control" id="exampleInputuname" value="{{info.modalidad.nombreEst2}}" disabled>
-                                </div>
-                                <div class="input-group">
-                                    <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                                    <input type="text" class="form-control" id="exampleInputuname" value="{{info.modalidad.nombreEst3}}" disabled>
-                                </div>
-
 
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <div class="row p-t-0" style="padding-left: 15px;" te>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="exampleInputuname">linea de investigación</label>
-                                <div class="input-group">
-                                    <div class="input-group-addon"><img id="icon" src="assets/svg/science.svg"></div>
-                                    <input type="text" class="form-control" id="exampleInputuname" value="{{info.modalidad.linea_investigacion}}">
+
+                <!-- ============================================================== -->
+                <!--                   MODAL INFORME 7                              -->
+                <!-- ============================================================== -->
+                <div class="col-md-3" *ngIf="proyectogrado?.documento_informe7">
+                    <div class="modal fade modal-informe7" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+
+                                <div class="modal-body">
+
+                                    <div class="row" style="margin-top: 15px; margin-left: 10px;">
+                                        <div class="col-lg-1">
+                                            <div class="vacantesImg text-center">
+                                                <p class="text-center">{{ letra }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <div class="vacantesInfo">
+                                                <h5 class="text-uppercase"> <b>{{ nombreEst }} {{apellidoEst}}</b></h5>
+                                                <small style="margin-top: -50px;"><i class="fa fa-briefcase"></i> &nbsp;
+                                                    {{titulo}} - {{empresa}}
+                                                </small><br>
+                                                <small><i class="fa fa-globe"></i>&nbsp;
+                                                    &nbsp;{{ubicacion}}, {{modalidad}}
+                                                </small> <br>
+                                                <small><i class="fa fa-code"></i>&nbsp; &nbsp;{{funciones}}
+                                                </small>
+                                            </div>
+                                        </div>
+                                    </div> <br>
+
+                                    <div class="row" style=" margin-top: 15px; margin-left: 25px;">
+                                        <h5 class="text-uppercase"> <b>ID de la solicitud:</b> </h5>
+                                        <p class="text-justify" style="margin-top: -3px;">&nbsp; {{_id}}</p>
+                                    </div>
+
+                                    <div class="row" style="margin-left: 25px;">
+                                        <h5 class="text-uppercase"> <b>Documento de Informe:</b> </h5>
+                                    </div>
+
+                                    <div class="row" style="margin-top: -3px; margin-left: 25px;">
+                                        <i class="fa fa-file-pdf-o"></i> &nbsp; &nbsp;<small class="text-justify">
+                                            {{proyectodegrado?.documento_informe</small>
+                                    </div>
+
+                                    <div class="row" style=" margin-top: 15px; margin-left: 25px;">
+                                        <h5 class="text-uppercase"> <b>Tutor de Pasantía:</b> </h5>
+                                    </div>
+
+                                    <ng-container *ngIf="!proyectogrado?.tutor">
+                                        <div class="row" style="margin-left: 25px; margin-top: 0px;">
+                                            <p class="text-justify"> <b>No Asignado Aún</b></p>
+                                        </div>
+                                    </ng-container>
+
+                                    <ng-container *ngIf="proyectogrado?.tutor">
+                                        <div class="row" style="margin-left: 25px; margin-top: 0px;">
+                                            <p class="text-justify"> <b>{{proyectogrado.tutor.nombres}}
+                                                    {{proyectogrado.tutor.apellidos}}</b></p>
+                                        </div>
+                                    </ng-container>
+
+
+                                    <div class="row" style="margin-left: 10px;">
+
+                                        <div class="col-md-4">
+                                            <h5 class="text-uppercase"> <b>Estado del Informe:</b> </h5>
+                                            <ng-container *ngIf="proyectogrado.estado_informe7 == 'Enviado'" class="text-success">
+                                                <span class="label btnInfo"> <b> {{ proyectodegrado?.estado_inform
+                                                    </b></span>
+                                            </ng-container>
+
+                                            <ng-container *ngIf="proyectogrado.estado_informe7 == 'Aprobado'" class="text-success">
+                                                <span class="label btnSuccess"> <b> {{ proyectodegrado?.estado_inform
+                                                    </b></span>
+                                            </ng-container>
+
+                                            <ng-container *ngIf="proyectogrado.estado_informe7 == 'Rechazado'" class="text-success">
+                                                <span class="label btnDanger"> <b> {{ proyectodegrado?.estado_inform
+                                                    </b></span>
+                                            </ng-container>
+                                        </div>
+
+
+                                        <div class="col-md-8">
+                                            <div class="form-group">
+                                                <h5 class="text-uppercase"> <b>Notas:</b> </h5>
+                                                <p class="text-justify">{{proyectodegrado?.notas_informe</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btnSuccess waves-effect text-left" data-dismiss="modal">Cerrar <i class="fa fa-times"></i></button>
+                                    </div>
+
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="exampleInputuname">fecha de aprobación de inscripción</label>
-                                <div class="input-group">
-                                    <div class="input-group-addon"><img id="icon" src="assets/svg/calendar.svg"></div>
-                                    <input type="text" class="form-control" id="exampleInputuname" value="{{info.modalidad.fecha}}">
-                                </div>
+
                             </div>
                         </div>
                     </div>
-
                 </div>
-                <p id="titulo"> SEGUIMIENTO </p>
+
+                <!-- ============================================================== -->
+                <!--                   MODAL INFORME 14                             -->
+                <!-- ============================================================== -->
+                <div class="col-md-3" *ngIf="proyectogrado?.documento_informe14">
+                    <div class="modal fade modal-informe14" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+
+                                <div class="modal-body">
+
+                                    <div class="row" style="margin-top: 15px; margin-left: 10px;">
+                                        <div class="col-lg-1">
+                                            <div class="vacantesImg text-center">
+                                                <p class="text-center">{{ letra }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <div class="vacantesInfo">
+                                                <h5 class="text-uppercase"> <b>{{ nombreEst }} {{apellidoEst}}</b></h5>
+                                                <small style="margin-top: -50px;"><i class="fa fa-briefcase"></i> &nbsp;
+                                                    {{titulo}} - {{empresa}}
+                                                </small><br>
+                                                <small><i class="fa fa-globe"></i>&nbsp;
+                                                    &nbsp;{{ubicacion}}, {{modalidad}}
+                                                </small> <br>
+                                                <small><i class="fa fa-code"></i>&nbsp; &nbsp;{{funciones}}
+                                                </small>
+                                            </div>
+                                        </div>
+                                    </div> <br>
+
+                                    <div class="row" style=" margin-top: 15px; margin-left: 25px;">
+                                        <h5 class="text-uppercase"> <b>ID de la solicitud:</b> </h5>
+                                        <p class="text-justify" style="margin-top: -3px;">&nbsp; {{_id}}</p>
+                                    </div>
+
+                                    <div class="row" style="margin-left: 25px;">
+                                        <h5 class="text-uppercase"> <b>Documento de Informe:</b> </h5>
+                                    </div>
+
+                                    <div class="row" style="margin-top: -3px; margin-left: 25px;">
+                                        <i class="fa fa-file-pdf-o"></i> &nbsp; &nbsp;<small class="text-justify">
+                                            {{proyectodegrado?.documento_informe1</small>
+                                    </div>
+
+                                    <div class="row" style=" margin-top: 15px; margin-left: 25px;">
+                                        <h5 class="text-uppercase"> <b>Tutor de Pasantía:</b> </h5>
+                                    </div>
+
+                                    <ng-container *ngIf="!proyectogrado?.tutor">
+                                        <div class="row" style="margin-left: 25px; margin-top: 0px;">
+                                            <p class="text-justify"> <b>No Asignado Aún</b></p>
+                                        </div>
+                                    </ng-container>
+
+                                    <ng-container *ngIf="proyectogrado?.tutor">
+                                        <div class="row" style="margin-left: 25px; margin-top: 0px;">
+                                            <p class="text-justify"> <b>{{proyectogrado.tutor.nombres}}
+                                                    {{proyectogrado.tutor.apellidos}}</b></p>
+                                        </div>
+                                    </ng-container>
+
+
+                                    <div class="row" style="margin-left: 10px;">
+
+                                        <div class="col-md-4">
+                                            <h5 class="text-uppercase"> <b>Estado del Informe:</b> </h5>
+                                            <ng-container *ngIf="proyectogrado.estado_informe14 == 'Enviado'" class="text-success">
+                                                <span class="label btnInfo"> <b> {{ proyectodegrado?.estado_informe1
+                                                    </b></span>
+                                            </ng-container>
+
+                                            <ng-container *ngIf="proyectogrado.estado_informe14 == 'Aprobado'" class="text-success">
+                                                <span class="label btnSuccess"> <b> {{ proyectodegrado?.estado_informe1
+                                                    </b></span>
+                                            </ng-container>
+
+                                            <ng-container *ngIf="proyectogrado.estado_informe14 == 'Rechazado'" class="text-success">
+                                                <span class="label btnDanger"> <b> {{ proyectodegrado?.estado_informe1
+                                                    </b></span>
+                                            </ng-container>
+                                        </div>
+
+
+                                        <div class="col-md-8">
+                                            <div class="form-group">
+                                                <h5 class="text-uppercase"> <b>Notas:</b> </h5>
+                                                <p class="text-justify">{{proyectodegrado?.notas_informe1</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btnSuccess waves-effect text-left" data-dismiss="modal">Cerrar <i class="fa fa-times"></i></button>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- ============================================================== -->
+                <!--                   MODAL INFORME FINAL                         -->
+                <!-- ============================================================== -->
+                <div class="col-md-3" *ngIf="proyectogrado?.documento_informeFinal">
+                    <div class="modal fade modal-informeFinal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+
+                                <div class="modal-body">
+
+                                    <div class="row" style="margin-top: 15px; margin-left: 10px;">
+                                        <div class="col-lg-1">
+                                            <div class="vacantesImg text-center">
+                                                <p class="text-center">{{ letra }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <div class="vacantesInfo">
+                                                <h5 class="text-uppercase"> <b>{{ nombreEst }} {{apellidoEst}}</b></h5>
+                                                <small style="margin-top: -50px;"><i class="fa fa-briefcase"></i> &nbsp;
+                                                    {{titulo}} - {{empresa}}
+                                                </small><br>
+                                                <small><i class="fa fa-globe"></i>&nbsp;
+                                                    &nbsp;{{ubicacion}}, {{modalidad}}
+                                                </small> <br>
+                                                <small><i class="fa fa-code"></i>&nbsp; &nbsp;{{funciones}}
+                                                </small>
+                                            </div>
+                                        </div>
+                                    </div> <br>
+
+                                    <div class="row" style=" margin-top: 15px; margin-left: 25px;">
+                                        <h5 class="text-uppercase"> <b>ID de la solicitud:</b> </h5>
+                                        <p class="text-justify" style="margin-top: -3px;">&nbsp; {{_id}}</p>
+                                    </div>
+
+                                    <div class="row" style="margin-left: 25px;">
+                                        <h5 class="text-uppercase"> <b>Documento de Informe:</b> </h5>
+                                    </div>
+
+                                    <div class="row" style="margin-top: -3px; margin-left: 25px;">
+                                        <i class="fa fa-file-pdf-o"></i> &nbsp; &nbsp;<small class="text-justify">
+                                            {{proyectodegrado?.documento_informeFina</small>
+                                    </div>
+
+                                    <div class="row" style=" margin-top: 15px; margin-left: 25px;">
+                                        <h5 class="text-uppercase"> <b>Tutor de Pasantía:</b> </h5>
+                                    </div>
+
+                                    <ng-container *ngIf="!proyectogrado?.tutor">
+                                        <div class="row" style="margin-left: 25px; margin-top: 0px;">
+                                            <p class="text-justify"> <b>No Asignado Aún</b></p>
+                                        </div>
+                                    </ng-container>
+
+                                    <ng-container *ngIf="proyectogrado?.tutor">
+                                        <div class="row" style="margin-left: 25px; margin-top: 0px;">
+                                            <p class="text-justify"> <b>{{proyectogrado.tutor.nombres}}
+                                                    {{proyectogrado.tutor.apellidos}}</b></p>
+                                        </div>
+                                    </ng-container>
+
+
+                                    <div class="row" style="margin-left: 10px;">
+
+                                        <div class="col-md-4">
+                                            <h5 class="text-uppercase"> <b>Estado del Informe:</b> </h5>
+                                            <ng-container *ngIf="proyectogrado.estado_informeFinal == 'Enviado'" class="text-success">
+                                                <span class="label btnInfo"> <b> {{ proyectodegrado?.estado_informeFi
+                                                    </b></span>
+                                            </ng-container>
+
+                                            <ng-container *ngIf="proyectogrado.estado_informeFinal == 'Aprobado'" class="text-success">
+                                                <span class="label btnSuccess"> <b>
+                                                        {{ proyectodegrado?.estado_informeFi
+                                                    </b></span>
+                                            </ng-container>
+
+                                            <ng-container *ngIf="proyectogrado.estado_informeFinal == 'Rechazado'" class="text-success">
+                                                <span class="label btnDanger"> <b>
+                                                        {{ proyectodegrado?.estado_informeFi
+                                                    </b></span>
+                                            </ng-container>
+                                        </div>
+
+
+                                        <div class="col-md-8">
+                                            <div class="form-group">
+                                                <h5 class="text-uppercase"> <b>Notas:</b> </h5>
+                                                <p class="text-justify">{{proyectodegrado?.notas_informeFina</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btnSuccess waves-effect text-left" data-dismiss="modal">Cerrar <i class="fa fa-times"></i></button>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- ============================================================== -->
+                <!--                        INFO SOLICITUD                          -->
+                <!-- ============================================================== -->
+                <h4 class="card-title text-uppercase" *ngIf="!proyectogrado"><b> 1. Fromulario de Inscripción
+                        &nbsp;<small style="color:#77181C"><b>No Aplica</b> </small>
+                    </b>
+                </h4>
+
+                <h4 class="card-title text-uppercase" *ngIf="proyectogrado?.estado === 'Aprobada'"><b> 1. Fromulario de Inscripción
+                        &nbsp;<i class="fa fa-check" style="color: green;"></i></b></h4>
+
+                <h4 class="card-title text-uppercase" *ngIf="proyectogrado?.estado === 'Rechazada'"><b> 1. Fromulario de Inscripción
+                        &nbsp;<i class="fa fa-times" style="color:#77181C"></i></b></h4>
+
+                <h4 class="card-title text-uppercase" *ngIf="proyectogrado?.estado === 'Enviada'"><b> 1. Fromulario de Inscripción
+                        &nbsp;<i class="mdi mdi-update" style="color:#C7B363"></i></b></h4>
+
+                <br>
+                <div class="row" *ngIf="proyectogrado">
+
+                    <ng-container>
+                        <div class="col-lg-1">
+                            <div class="vacantesImg text-center">
+                                <p class="text-center text-uppercase">{{proyectogrado?.titulo_proyecto[0]}}</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="vacantes">
+                                <h5 class="text-uppercase"> <b>{{proyectogrado?.titulo_proyecto}}
+                                    </b></h5>
+                                <small style="margin-top: -50px;"><i class="fa fa-user"></i> &nbsp;
+                                    {{proyectogrado?.titulo_proyecto}}
+                                </small><br>
+                                <small><i class="fa fa-globe"></i>&nbsp;
+                                    &nbsp;{{proyectogrado?.linea_investigacion}}
+                                   
+                                </small> <br>
+                                <small><i class="mdi mdi-account-card-details"></i>&nbsp;
+                                    &nbsp;{{_id}}
+                                </small>
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4">
+
+                            <h5 class="text-uppercase"><b>Estado :</b></h5>
+                            <ng-container *ngIf="proyectogrado?.estado =='Enviada'" class="text-success">
+                                <span class="label btnInfo"> <b> {{ proyectogrado?.estado }} </b></span>
+                            </ng-container>
+
+                            <ng-container *ngIf="proyectogrado?.estado == 'Aprobada'" class="text-success">
+                                <span class="label btnSuccess"> <b> {{ proyectogrado?.estado }} </b></span>
+                            </ng-container>
+
+                            <ng-container *ngIf="proyectogrado?.estado == 'Rechazada'" class="text-success">
+                                <span class="label btnDanger"> <b> {{ proyectogrado?.estado }} </b></span>
+                            </ng-container>
+                            <br>
+                        </div>
+
+                        <div class="col-lg-2">
+                            <div class="buttons">
+
+                                <button type="button" (click)="getDataInfo(proyectogrado)" data-toggle="modal" data-target=".modal-info" class="btn btnInfo waves-effect text-left"><b>Más Info
+                                        <i class="fa fa-info-circle"></i></b></button>
+                            </div>
+
+                        </div>
+                    </ng-container>
+
+                </div><br><br>
+
+
+                <!-- ============================================================== -->
+                <!--                       ANTEPROYECTO                        -->
+                <!-- ============================================================== -->
+                <h4 class="card-title text-uppercase" *ngIf="!proyectogrado?.estado_anteproyecto"><b> 2.
+                        Anteproyecto
+                    </b></h4>
+
+                <h4 class="card-title text-uppercase" *ngIf="proyectogrado?.estado_anteproyecto === 'Aprobada'"><b> 2.
+                        Anteproyecto
+                        &nbsp;<i class="fa fa-check" style="color: green;"></i></b></h4>
+
+                <h4 class="card-title text-uppercase" *ngIf="proyectogrado?.estado_anteproyecto === 'Rechazada'"><b> 2.
+                        Anteproyecto
+                        &nbsp;<i class="fa fa-times" style="color:#77181C"></i></b></h4>
+
+                <h4 class="card-title text-uppercase" *ngIf="proyectogrado?.estado_anteproyecto === 'Enviada'"><b> 2.
+                        Anteproyecto
+                        &nbsp;<i class="mdi mdi-update" style="color:#C7B363"></i></b></h4>
+
+                <br>
+
+                <ng-container *ngIf="proyectogrado?.documento_propuesta">
+                    <div class="row">
+                        <ng-container>
+                            <div class="col-lg-1">
+                                <div class="vacantesImg text-center">
+                                    <p class="text-center">{{proyectogrado.vacante.letra}}</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-5">
+                                <div class="vacantes">
+                                    <h5 class="text-uppercase"> <b>{{ proyectogrado.estudiante.nombres }}
+                                            {{ proyectogrado.estudiante.apellidos }}</b></h5>
+                                    <small style="margin-top: -50px;"><i class="fa fa-briefcase"></i> &nbsp;
+                                        {{ proyectogrado.vacante.titulo }} - {{proyectogrado.empresa.nombre}}
+                                    </small><br>
+                                    <small><i class="fa fa-file-pdf-o"></i>&nbsp;
+                                        &nbsp;{{proyectogrado.documento_propues
+                                    </small> <br>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4">
+
+                                <h5 class="text-uppercase"><b>Estado de la Propuesta:</b></h5>
+                                <ng-container *ngIf="proyectogrado?.estado_anteproyecto == 'Enviada'" class="text-success">
+                                    <span class="label btnInfo"> <b> {{ proyectogrado.estado_propues </b></span>
+                                </ng-container>
+
+                                <ng-container *ngIf="proyectogrado?.estado_anteproyecto == 'Aprobada'" class="text-success">
+                                    <span class="label btnSuccess"> <b> {{ proyectogrado.estado_propues </b></span>
+                                </ng-container>
+
+                                <ng-container *ngIf="proyectogrado?.estado_anteproyecto == 'Rechazada'" class="text-success">
+                                    <span class="label btnDanger"> <b> {{ proyectogrado.estado_propues </b></span>
+                                </ng-container>
+                                <br>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <div class="buttons">
+
+                                    <button type="button" (click)="getDataInfo(proyectogrado)" data-toggle="modal" data-target=".modal-propuesta" class="btn btnInfo waves-effect text-left"><b>Más
+                                            Info
+                                            <i class="fa fa-info-circle"></i></b></button>
+                                </div>
+
+                            </div>
+                        </ng-container>
+                    </div>
+                </ng-container>
+                <br><br>
+
+
+                <!-- ============================================================== -->
+                <!--                        PROYECTO                       -->
+                <!-- ============================================================== -->
+                <h4 class="card-title text-uppercase" *ngIf="!proyectogrado?.estado_proyecto"><b> 3.
+                        Proyecto
+                    </b></h4>
+
+                <h4 class="card-title text-uppercase" *ngIf="proyectogrado?.estado_proyecto === 'Aprobado'"><b> 3.
+                        Proyecto
+                        &nbsp;<i class="fa fa-check" style="color: green;"></i></b></h4>
+
+                <h4 class="card-title text-uppercase" *ngIf="proyectogrado?.estado_proyecto === 'Rechazado'"><b> 3.
+                        Proyecto
+                        &nbsp;<i class="fa fa-times" style="color:#77181C"></i></b></h4>
+
+                <h4 class="card-title text-uppercase" *ngIf="proyectogrado?.estado_proyecto === 'Enviado'"><b> 3.
+                        Proyecto
+                        &nbsp;<i class="mdi mdi-update" style="color:#C7B363"></i></b></h4>
+
+                <br>
+
+                <ng-container *ngIf="proyectogrado?.documento_informe7">
+                    <div class="row">
+                        <ng-container>
+                            <div class="col-lg-1">
+                                <div class="vacantesImg text-center">
+                                    <p class="text-center">{{proyectogrado.vacante.letra}}</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-5">
+                                <div class="vacantes">
+                                    <h5 class="text-uppercase"> <b>{{ proyectogrado.estudiante.nombres }}
+                                            {{ proyectogrado.estudiante.apellidos }}</b></h5>
+                                    <small style="margin-top: -50px;"><i class="fa fa-briefcase"></i> &nbsp;
+                                        {{ proyectogrado.vacante.titulo }} - {{proyectogrado.empresa.nombre}}
+                                    </small><br>
+                                    <small><i class="fa fa-file-pdf-o"></i>&nbsp;
+                                        &nbsp;{{proyectogrado.documento_informe
+                                    </small> <br>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4">
+
+                                <h5 class="text-uppercase"><b>Estado del Informe:</b></h5>
+                                <ng-container *ngIf="proyectogrado?.estado_proyecto == 'Enviado'" class="text-success">
+                                    <span class="label btnInfo"> <b> {{ proyectogrado.estado_inform </b></span>
+                                </ng-container>
+
+                                <ng-container *ngIf="proyectogrado?.estado_proyecto == 'Aprobado'" class="text-success">
+                                    <span class="label btnSuccess"> <b> {{ proyectogrado.estado_inform </b></span>
+                                </ng-container>
+
+                                <ng-container *ngIf="proyectogrado?.estado_proyecto == 'Rechazado'" class="text-success">
+                                    <span class="label btnDanger"> <b> {{ proyectogrado.estado_inform </b></span>
+                                </ng-container>
+                                <br>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <div class="buttons">
+
+                                    <button type="button" (click)="getDataInfo(proyectogrado)" data-toggle="modal" data-target=".modal-informe7" class="btn btnInfo waves-effect text-left"><b>Más
+                                            Info
+                                            <i class="fa fa-info-circle"></i></b></button>
+                                </div>
+
+                            </div>
+                        </ng-container>
+                    </div>
+                </ng-container><br><br>
+
+
+                <!-- ============================================================== -->
+                <!--                        DOCUMENTO FINAL                      -->
+                <!-- ============================================================== -->
+                <h4 class="card-title text-uppercase" *ngIf="!proyectogrado?.estado_documento_final"><b> 4.
+                        Documento Final
+                    </b></h4>
+
+                <h4 class="card-title text-uppercase" *ngIf="proyectogrado?.estado_documento_final === 'Aprobado'"><b> 4.
+                        Documento Final
+                        &nbsp;<i class="fa fa-check" style="color: green;"></i></b></h4>
+
+                <h4 class="card-title text-uppercase" *ngIf="proyectogrado?.estado_documento_final === 'Rechazado'"><b> 4.
+                        Documento Final
+                        &nbsp;<i class="fa fa-times" style="color:#77181C"></i></b></h4>
+
+                <h4 class="card-title text-uppercase" *ngIf="proyectogrado?.estado_documento_final === 'Enviado'"><b> 4.
+                        Documento Final
+                        &nbsp;<i class="mdi mdi-update" style="color:#C7B363"></i></b></h4>
+
+                <br>
+
+                <ng-container *ngIf="proyectogrado?.documento_informe14">
+                    <div class="row">
+                        <ng-container>
+                            <div class="col-lg-1">
+                                <div class="vacantesImg text-center">
+                                    <p class="text-center">{{proyectogrado.vacante.letra}}</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-5">
+                                <div class="vacantes">
+                                    <h5 class="text-uppercase"> <b>{{ proyectogrado.estudiante.nombres }}
+                                            {{ proyectogrado.estudiante.apellidos }}</b></h5>
+                                    <small style="margin-top: -50px;"><i class="fa fa-briefcase"></i> &nbsp;
+                                        {{ proyectogrado.vacante.titulo }} - {{proyectogrado.empresa.nombre}}
+                                    </small><br>
+                                    <small><i class="fa fa-file-pdf-o"></i>&nbsp;
+                                        &nbsp;{{proyectogrado.documento_informe1
+                                    </small> <br>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4">
+
+                                <h5 class="text-uppercase"><b>Estado del Informe:</b></h5>
+                                <ng-container *ngIf="proyectogrado?.estado_documento_final == 'Enviado'" class="text-success">
+                                    <span class="label btnInfo"> <b> {{ proyectogrado.estado_informe1 </b></span>
+                                </ng-container>
+
+                                <ng-container *ngIf="proyectogrado?.estado_documento_final == 'Aprobado'" class="text-success">
+                                    <span class="label btnSuccess"> <b> {{ proyectogrado.estado_informe1 </b></span>
+                                </ng-container>
+
+                                <ng-container *ngIf="proyectogrado?.estado_documento_final == 'Rechazado'" class="text-success">
+                                    <span class="label btnDanger"> <b> {{ proyectogrado.estado_informe1 </b></span>
+                                </ng-container>
+                                <br>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <div class="buttons">
+
+                                    <button type="button" (click)="getDataInfo(proyectogrado)" data-toggle="modal" data-target=".modal-informe14" class="btn btnInfo waves-effect text-left"><b>Más
+                                            Info
+                                            <i class="fa fa-info-circle"></i></b></button>
+                                </div>
+
+                            </div>
+                        </ng-container>
+                    </div>
+                </ng-container> <br><br>
+
+
+
+
             </div>
-
-            <hr/>
-
-
-            <table class="width200">
-
-                <thead>
-                    <tr>
-                        <th>Fase</th>
-                        <th>Estado</th>
-                        <th>Fecha</th>
-                        <th>Aprobado por</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td id="fase">Formulario Inscripción</td>
-                        <td>{{info.modalidad.estado}}</td>
-                        <td>{{info.modalidad.fecha}}</td>
-                        <td>{{info.modalidad.director_proyecto}}</td>
-
-                    </tr>
-                    <tr>
-                        <td id="fase">Anteproyecto</td>
-                        <td>{{info.modalidad.estado_anteproyecto}}</td>
-                        <td>{{info.modalidad.fechaAnte}}</td>
-                        <td>{{info.modalidad.director_proyectoAnte}}</td>
-
-                    </tr>
-                    <tr>
-                        <td id="fase">Proyecto</td>
-                        <td>{{info.modalidad.estadoProy}}</td>
-                        <td>{{info.modalidad.fechaProy}}</td>
-                        <td>{{info.modalidad.director_proyectoProy}}</td>
-
-                    </tr>
-                    <tr>
-                        <td id="fase">Documento final</td>
-                        <td>{{info.modalidad.estadoDoc}}</td>
-                        <td>{{info.modalidad.fechaDoc}}</td>
-                        <td>{{info.modalidad.director_proyectoDoc}}</td>
-
-                    </tr>
-
-                </tbody>
-            </table>
-
-            <br>
         </div>
     </div>
-
 </div>

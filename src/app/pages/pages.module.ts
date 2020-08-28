@@ -18,14 +18,17 @@ import { PAGES_ROUTES } from './pages.routes';
 import { PipesModule } from '../pipes/pipes.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormularioInscripcionComponent } from './solicitudes/proyecto/formulario-inscripcion/formulario-inscripcion.component';
-import { SeguimientoModalidadComponent } from './solicitudes/proyecto/seguimiento-modalidad/seguimiento-modalidad.component';
 import { AnteproyectoComponent } from './solicitudes/proyecto/anteproyecto/anteproyecto.component';
 import { ProyectoComponent } from './solicitudes/proyecto/proyecto/proyecto.component';
+import { SeguimientoModalidadComponent } from './solicitudes/proyecto/seguimiento-modalidad/seguimiento-modalidad.component';
 import { DocFinalComponent } from './solicitudes/proyecto/doc-final/doc-final.component';
 import { FormsModule } from '@angular/forms';
 import { SustentacionComponent } from './solicitudes/proyecto/sustentacion/sustentacion.component';
 import { FormProyectoComponent } from './solicitudes/admin/form-proyecto/form-proyecto.component';
-
+import { AdminAnteproyectoComponent } from './solicitudes/admin/admin-anteproyecto/admin-anteproyecto.component';
+import { AdminProyectoComponent } from './solicitudes/admin/admin-proyecto/admin-proyecto.component';
+import { AdminDocFinalComponent } from './solicitudes/admin/admin-doc-final/admin-doc-final.component';
+// Pipes proyecto de grado
 
 @NgModule({
   declarations: [
@@ -42,7 +45,10 @@ import { FormProyectoComponent } from './solicitudes/admin/form-proyecto/form-pr
     ProyectoComponent,
     DocFinalComponent,
     SustentacionComponent,
-    FormProyectoComponent
+    FormProyectoComponent,
+    AdminAnteproyectoComponent,
+    AdminProyectoComponent,
+    AdminDocFinalComponent
 
   ],
   exports: [

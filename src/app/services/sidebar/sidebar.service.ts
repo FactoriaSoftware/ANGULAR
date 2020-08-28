@@ -61,7 +61,7 @@ menuAdmin: any = [
     titulo: 'Proyecto de Grado',
     icono: 'fa fa-book',
     submenu: [
-      { titulo: 'formularios de Inscripción', url: '/formularios' },
+      { titulo: 'formularios de Inscripción', url: '/formulario' },
       { titulo: 'Anteproyectos', url: '/anteproyectos' },
       { titulo: 'Proyectos', url: '/proyectos' },
       { titulo: 'Documentos Finales', url: '/docFinales' },
@@ -148,27 +148,13 @@ menuEstudiante: any[] = [
     submenu: [
       { titulo: 'Anteproyecto', url: '/anteproyecto' },
       { titulo: 'Proyecto', url: '/proyecto' },
-      { titulo: 'Documento Final', url: '/doc-final' },]
+      { titulo: 'Documento Final', url: '/documento-final' }]
   },
   {
-    titulo: 'Seguimiento',
+    titulo: 'Sustentación',
     icono: 'fa fa-file-text-o',
     submenu: [
-      { titulo: 'Ver Seguimiento', url: '/seguimiento-proyecto-de-grado' },
-    ]
-  },
-  {
-    titulo: 'Informe Final',
-    icono: 'fa fa-file-word-o',
-    submenu: [
-      { titulo: 'Enviar Informe', url: '/dashboard' },
-    ]
-  },
-  {
-    titulo: 'Estado de mi Modalidad',
-    icono: 'fa fa-info-circle',
-    submenu: [
-      { titulo: 'Var Estado', url: '/mi-modalidad' }
+      { titulo: 'sustentacion', url: '/sustentacion' },
     ]
   }
 ]

@@ -8,12 +8,32 @@ import Swal from 'sweetalert2';
 import { catchError } from 'rxjs/internal/operators/catchError';
 import { throwError } from 'rxjs/internal/observable/throwError';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class ProyectoGradoService {
 
   constructor(public http:HttpClient, public router: Router) { }
+
+  getSolicitudes() {
+
+    let token = localStorage.getItem('token');
+    let url = `${URL_SERVICES}/proyectogrado?token=${token}`;
+
+    return this.http.get(url);
+
+  }
+
+  getProyectogrado(id: string) {
+
+    let token = localStorage.getItem('token');
+    let url = `${URL_SERVICES}/proyectogrado/${id}?token=${token}`;
+
+    return this.http.get(url);
+
+  }
+
   
   postSolicitud(solicitud:Solicitud,
     id_Estudiante:string){
@@ -52,25 +72,23 @@ export class ProyectoGradoService {
       }));
 
     }
-    getSolicitud(solicitud:Solicitud,
-      id_Estudiante:string){
+    putSolicitud(id_Estudiante: string, solicitud: Solicitud){
         
         let token =localStorage.getItem("token")
   
         let url =`${URL_SERVICES}/proyectogrado/${id_Estudiante}?token=${token}`; 
   
   
-        return this.http.post(url, solicitud).pipe(map((resp: any) => {
+        return this.http.put(url, solicitud).pipe(map((resp: any) => {
   
           if (resp.ok == true) {
     
             Swal.fire({
-              title: '¡integrante agredado correctamente!',
-              text:'',
-              html: `Su solicitud fue exitosa, el radicado de su solicitud es: <b> ${resp.solicitudGuardada._id}</b>. <br> <center> Por favor vuelva a Iniciar Sesión </center>`,
+              title: '¡Bien Hecho!',
+              text: `Se ha actualizado correctamente la solicitud`,
               icon: 'success'
             }).then(() => {
-              this.router.navigate(['/login'])
+              location.reload();
             });
           }
     
@@ -79,9 +97,9 @@ export class ProyectoGradoService {
         }), catchError((err) => {
     
           Swal.fire({
-            title: '¡No se pudo agregar el integrante!',
-            text: err.error.mensaje,
-            icon: 'error',
+            title: '¡Error al actualizar estado!',
+        text: err.error.mensaje,
+        icon: 'error',
             
           });
     
@@ -89,6 +107,12 @@ export class ProyectoGradoService {
     
         }));
   
+      }
+
+      getSolicitud(idSolicitud: string){
+        let token =localStorage.getItem("token")
+        let url =`${URL_SERVICES}/proyectogrado/${idSolicitud}?token=${token}`; 
+        return this.http.get(url)
       }
 
 }
