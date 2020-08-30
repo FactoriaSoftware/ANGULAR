@@ -13,7 +13,7 @@ export class DocFinalComponent implements OnInit {
   info:any;
   nombreArchivo: string;
   MAX_SIZE_FILE: number = 25000000;
-  anteproyecto = new FormData();
+  documento_final = new FormData();
 
   constructor(private subirArchivoservice: SubirArchivoService) { }
 
@@ -42,8 +42,8 @@ export class DocFinalComponent implements OnInit {
       });
     }else {
       this.nombreArchivo = file.name;
-      let anteproyecto = <File>file;
-      this.anteproyecto.append('anteproyecto',anteproyecto,anteproyecto.name);
+      let documento_final = <File>file;
+      this.documento_final.append('documento_final',documento_final,documento_final.name);
 
     }
     
@@ -67,7 +67,7 @@ export class DocFinalComponent implements OnInit {
         let idEstudiante = JSON.parse(localStorage.getItem('estudiante'))._id;
 
           // call service
-        this.subirArchivoservice.uploadFile(idEstudiante,this.anteproyecto).subscribe();
+        this.subirArchivoservice.uploadFile(idEstudiante,this.documento_final).subscribe();
         
 
       }

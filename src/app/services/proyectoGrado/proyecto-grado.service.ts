@@ -72,7 +72,7 @@ export class ProyectoGradoService {
       }));
 
     }
-    putSolicitud(id_Estudiante: string, solicitud: Solicitud){
+    putSolicitud(id_Estudiante: string, solicitud: any){
         
         let token =localStorage.getItem("token")
   

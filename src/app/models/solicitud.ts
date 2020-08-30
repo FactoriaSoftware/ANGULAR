@@ -23,15 +23,15 @@ export class Solicitud {
     public    tutor?: String,
 
     
-    public    anteproyecto?:  String,
+    public    anteproyecto?:  FormData,
     public    estado_anteproyecto?:String,
     public    notaAnteproyecto?:String,
 
-    public    proyecto?:  String,
+    public    proyecto?:  FormData,
     public    estado_proyecto?:String,
     public    notaProyecto?:String,
 
-    public    documento_final?:  String,
+    public    documento_final?: FormData,
     public    estado_documento_final?:  String,
     public    notaDocumentoFinal?:  String,
 

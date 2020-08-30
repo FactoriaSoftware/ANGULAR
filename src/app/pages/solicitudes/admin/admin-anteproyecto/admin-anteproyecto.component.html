@@ -3,7 +3,7 @@
         <div class="card">
             <div class="card-body">
 
-                <h3 class="card-title text-uppercase"><b> Todos los formularios de inscripción</b></h3>
+                <h3 class="card-title text-uppercase"><b> Todos los Anteproyectos</b></h3>
                 <hr>
 
                 <div class="col-md-3">
@@ -16,7 +16,7 @@
                                     <div class="row" style="margin-top: 15px; margin-left: 10px;">
                                         <div class="col-lg-1">
                                             <div class="vacantesImg text-center">
-                                                <p class="text-center">{{ letra }}</p>
+                                                <p class="text-center text-uppercase">{{formulario?.titulo_proyecto[0]}}</p>
                                             </div>
                                         </div>
                                         <div class="col-lg-8">
@@ -39,41 +39,25 @@
                                         <h5 class="text-uppercase"> <b>ID de la solicitud:</b> </h5>
                                         <p class="text-justify" style="margin-top: -3px;">&nbsp; {{_id}}</p>
                                     </div>
-                                    <div class="row" style=" margin-top: 15px; margin-left: 25px;">
-                                        <h5 class="text-uppercase"> <b>LINEA DE INVESTIGACIÓN :</b> </h5>
-                                        <p class="text-justify" style="margin-top: -3px;">&nbsp; {{formulario?.linea_investigacion}}</p>
-                                    </div>
-                                    <div class="row" style=" margin-top: 15px; margin-left: 25px;">
-                                        <h5 class="text-uppercase"> <b>PLANTEAMIENTO DEL PROBLEMA :</b> </h5>
-                                        <textarea ngModel name="problema" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="{{formulario?.linea_investigacion}}" disabled></textarea>
-
-                                    </div>
-                                    <div class="row" style=" margin-top: 15px; margin-left: 25px;">
-                                        <h5 class="text-uppercase"> <b>ALCANCE Y LIMITACIONES :</b> </h5>
-                                        <textarea ngModel name="problema" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="{{formulario?.alcance_limitaciones}}" disabled></textarea>
-                                    </div>
-                                    <div class="row" style=" margin-top: 15px; margin-left: 25px;">
-                                        <h5 class="text-uppercase"> <b>METODOLOGIA :</b> </h5>
-                                        <textarea ngModel name="problema" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="{{formulario?.metodologia}}" disabled></textarea>
-                                    </div>
 
 
-                                    <!-- <div class="row" style="margin-left: 25px;">
-                                        <h5 class="text-uppercase"> <b>Documento de Propuesta de Pasantía:</b> </h5>
+
+                                    <div class="row" style="margin-left: 25px;">
+                                        <h5 class="text-uppercase"> <b>Documento de Anteproyecto:</b> </h5>
                                     </div>
 
                                     <div class="row" style="margin-top: -3px; margin-left: 25px;">
                                         <i class="fa fa-file-pdf-o"></i> &nbsp; &nbsp;<small class="text-justify">
-                                            {{formulario?.estado}}</small>
-                                        
-                                        <a class="btn btnSuccess descargar" [href]="formulario?.estado | documento: idEstudiante" download="formulario?.documento_propuesta" target="_blank" style="margin-top: -10px; margin-left: 15px;"><small><b>Descargar
-                                                    Documento</b></small></a>-->
-                                </div>
+                                            {{formulario?.anteproyecto}}</small>
 
-                                <div class="row" style=" margin-top: 15px; margin-left: 25px;">
-                                    <h5 class="text-uppercase"> <b>Tutor de Pasantía:</b> </h5>
-                                </div>
-                                <!-- 
+                                        <!--  <a class="btn btnSuccess descargar" [href]="formulario?.anteproyecto | documento: idEstudiante" download="formulario?.anteproyecto" target="_blank" style="margin-top: -10px; margin-left: 15px;"><small><b>Descargar
+                                                    Documento</b></small></a> -->
+                                    </div>
+
+                                    <div class="row" style=" margin-top: 15px; margin-left: 25px;">
+                                        <h5 class="text-uppercase"> <b>Tutor de Pasantía:</b> </h5>
+                                    </div>
+
                                     <ng-container *ngIf="formulario?.tutor == null">
                                         <div class="row" style="margin-left: 25px; margin-top: 0px;">
                                             <span class="label btnDanger"> <b> No Asignado</b></span>
@@ -88,135 +72,134 @@
                                                     {{tutorApellidos}}</b></span>
                                         </div>
                                     </ng-container>
--->
-                                <br><br>
 
-                                <form ngNativeValidate #actualizar="ngForm" (ngSubmit)="putSolicitud(actualizar)" class="form-horizontal" id="loginform" style="padding-left: 20px;">
+                                    <br><br>
 
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label class="control-label">
+                                    <form ngNativeValidate #actualizar="ngForm" (ngSubmit)="putSolicitud(actualizar)" class="form-horizontal" id="loginform" style="padding-left: 20px;">
+
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">
                                                         <h5 class="text-uppercase"> <b>Estado:</b> </h5>
                                                     </label>
-                                                <select [(ngModel)]="estado" name="estado" class="form-control custom-select" required>
+                                                    <select [(ngModel)]="estado_anteproyecto" name="estado_anteproyecto" class="form-control custom-select" required>
                                                         <option value="Enviada">Enviada</option>
                                                         <option value="Aprobada">Aprobada</option>
                                                         <option value="Rechazada">Rechazada</option>
                                                     </select>
+                                                </div>
                                             </div>
-                                        </div>
 
-                                        <div class="col-md-8">
-                                            <div class="form-group">
-                                                <label class="control-label">
+                                            <div class="col-md-8">
+                                                <div class="form-group">
+                                                    <label class="control-label">
                                                         <h5 class="text-uppercase"> <b>Notas:</b> </h5>
                                                     </label>
-                                                <input [(ngModel)]="estado" name="estado" type="text" id="firstName" class="form-control" placeholder="Notas Para el Estudiante">
+                                                    <input [(ngModel)]="estado" name="estado" type="text" id="firstName" class="form-control" placeholder="Notas Para el Estudiante">
+                                                </div>
                                             </div>
-                                        </div>
 
-                                    </div>
-                                    <!---->
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <label class="control-label">
+                                        </div>
+                                        <!--
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <label class="control-label">
                                                     <h5 class="text-uppercase"> <b>Asignar Tutor:</b> </h5>
                                                 </label>
-                                            <select ngModel name="tutor" class="form-control custom-select" required>
+                                                <select ngModel name="tutor" class="form-control custom-select" required>
                                                     <ng-container *ngFor="let tutor of tutores">
                                                         <option value="{{tutor._id}}">
                                                             {{tutor.nombres}} {{tutor.apellidos}}</option>
                                                     </ng-container>
                                                 </select>
+                                            </div>
                                         </div>
-                                    </div>
+-->
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btnSuccess waves-effect text-left" data-dismiss="modal">Cerrar <i class="fa fa-times"></i></button>
 
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btnSuccess waves-effect text-left" data-dismiss="modal">Cerrar <i class="fa fa-times"></i></button>
-
-                                        <button type="submit" class="btn btnInfo waves-effect text-left">Actualizar
+                                            <button type="submit" class="btn btnInfo waves-effect text-left">Actualizar
                                                 <i class="mdi mdi-update"></i></button>
 
-                                    </div>
-                                </form>
-                            </div>
+                                        </div>
+                                    </form>
+                                </div>
 
+                            </div>
                         </div>
+
                     </div>
 
                 </div>
 
-            </div>
 
 
+                <div class="col-12" style="margin-left: -15px;">
 
-            <div class="col-12" style="margin-left: -15px;">
-
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <input #dataBuscar (keyup)="getDataBuscar(dataBuscar.value)" name="dataBuscar" type="text" id="firstName" class="form-control" placeholder="Busca la solicitud por Id, Estudiante o Empresa">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input #dataBuscar (keyup)="getDataBuscar(dataBuscar.value)" name="dataBuscar" type="text" id="firstName" class="form-control" placeholder="Busca la solicitud por Id o Estudiante ">
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <br>
+                <br>
 
-            <div class="row" *ngFor="let dato of solicitudes">
+                <div class="row" *ngFor="let dato of solicitudes">
 
-                <ng-container *ngIf="(programa === dato.estudiante.programa)">
-                    <!--<ng-container *ngIf="(programa === dato.estudiante.programa && dato.documento_propuesta != null)">-->
+                    <ng-container *ngIf="(programa === dato.estudiante.programa && dato.anteproyecto != null)">
+                        <!--<ng-container *ngIf="(programa === dato.estudiante.programa && dato.documento_propuesta != null)">-->
 
-                    <ng-container>
-                        <div class="col-lg-1">
-                            <div class="vacantesImg text-center">
-                                <p class="text-center"></p>
+                        <ng-container>
+                            <div class="col-lg-1">
+                                <div class="vacantesImg text-center">
+                                    <p class="text-center text-uppercase">{{dato?.titulo_proyecto[0]}}</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-lg-5">
-                            <div class="vacantes">
-                                <h5 class="text-uppercase"> <b>{{ dato.estudiante.nombres }}
+                            <div class="col-lg-5">
+                                <div class="vacantes">
+                                    <h5 class="text-uppercase"> <b>{{ dato.estudiante.nombres }}
                                             {{ dato.estudiante.apellidos }}</b></h5>
-                                <small style="margin-top: -50px;"><i class="fa fa-briefcase"></i> &nbsp;
-                                    {{formulario?.titulo_proyecto}}
+                                    <small style="margin-top: -50px;"><i class="fa fa-briefcase"></i> &nbsp;
+                                    {{dato?.titulo_proyecto}}
                                     </small><br>
-                                <!-- <small><i class="fa fa-file-pdf-o"></i>&nbsp;
-                                        &nbsp;{{dato.documento_propuesta}}
-                                    </small> <br>-->
+                                    <small><i class="fa fa-file-pdf-o"></i>&nbsp;
+                                        &nbsp;{{dato?.anteproyecto}}
+                                    </small> <br>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="col-lg-4">
+                            <div class="col-lg-4">
 
-                            <h5 class="text-uppercase"><b>Estado :</b></h5>
-                            <ng-container *ngIf="dato.formulario?.estado == 'Enviada'" class="text-success">
-                                <span class="label btnInfo"> <b> {{ dato.estado }} </b></span>
-                            </ng-container>
+                                <h5 class="text-uppercase"><b>Estado :</b></h5>
+                                <ng-container *ngIf="dato?.estado_anteproyecto=='Enviada'" class="text-success">
+                                    <span class="label btnInfo"> <b> {{ dato?.estado_anteproyecto }} </b></span>
+                                </ng-container>
 
-                            <ng-container *ngIf="dato.estado == 'Aprobada'" class="text-success">
-                                <span class="label btnSuccess"> <b> {{ dato.estado }} </b></span>
-                            </ng-container>
+                                <ng-container *ngIf="dato?.estado_anteproyecto == 'Aprobada'" class="text-success">
+                                    <span class="label btnSuccess"> <b> {{ dato?.estado_anteproyecto }} </b></span>
+                                </ng-container>
 
-                            <ng-container *ngIf="dato.estado == 'Rechazada'" class="text-success">
-                                <span class="label btnDanger"> <b> {{ dato.estado }} </b></span>
-                            </ng-container>
-                            <br>
+                                <ng-container *ngIf="dato?.estado_anteproyecto== 'Rechazada'" class="text-success">
+                                    <span class="label btnDanger"> <b> {{ dato?.estado_anteproyecto}} </b></span>
+                                </ng-container>
+                                <br>
+                            </div>
 
-                        </div>
+                            <div class="col-lg-2">
+                                <div class="buttons">
 
-                        <div class="col-lg-2">
-                            <div class="buttons">
-
-                                <button type="button" (click)="getDataInfo(dato)" data-toggle="modal" data-target=".modal-propuesta" class="btn btnInfo waves-effect text-left"><b>Gestionar
+                                    <button type="button" (click)="getDataInfo(dato)" data-toggle="modal" data-target=".modal-propuesta" class="btn btnInfo waves-effect text-left"><b>Gestionar
                                             <i class="fa fa-info-circle"></i></b></button>
+                                </div>
                             </div>
-                        </div>
+                        </ng-container><br><br><br><br>
                     </ng-container>
-                </ng-container>
 
+                </div>
             </div>
         </div>
     </div>
-</div>

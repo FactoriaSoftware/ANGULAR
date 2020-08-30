@@ -40,10 +40,10 @@ const pagesRoutes: Routes = [
             {path: 'proyecto', component: ProyectoComponent, data: { titulo: 'proyecto'},canActivate:[LoginGuardGuard]},
             {path: 'documento-final', component: DocFinalComponent, data: { titulo: 'anteproyecto'},canActivate:[LoginGuardGuard]},
             {path: 'sustentacion', component: SustentacionComponent, data: { titulo: 'sustentacion'},canActivate:[LoginGuardGuard]},
-            {path: 'formulario', component: FormProyectoComponent, data: { titulo: 'formulario'},canActivate:[LoginGuardGuard]},
-            {path: 'Admin-anteproyecto', component: AdminAnteproyectoComponent, data: { titulo: 'formulario'},canActivate:[LoginGuardGuard]},
-            //{path: 'formulario', component: FormProyectoComponent, data: { titulo: 'formulario'},canActivate:[LoginGuardGuard]},
-            //{path: 'formulario', component: FormProyectoComponent, data: { titulo: 'formulario'},canActivate:[LoginGuardGuard]},
+            {path: 'formulario', component: FormProyectoComponent, data: { titulo: 'formularios'},canActivate:[LoginGuardGuard]},
+            {path: 'Admin-anteproyecto', component: AdminAnteproyectoComponent, data: { titulo: 'Anteproyectos'},canActivate:[LoginGuardGuard]},
+            {path: 'Admin-proyecto', component: AdminProyectoComponent, data: { titulo: 'Proyectos'},canActivate:[LoginGuardGuard]},
+            {path: 'Admin-docfinal', component: AdminDocFinalComponent, data: { titulo: 'Documentos finales'},canActivate:[LoginGuardGuard]},
 
             { path: '', redirectTo: '/panel-principal', pathMatch: 'full'}
         ]

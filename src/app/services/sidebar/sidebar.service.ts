@@ -62,9 +62,9 @@ menuAdmin: any = [
     icono: 'fa fa-book',
     submenu: [
       { titulo: 'formularios de Inscripción', url: '/formulario' },
-      { titulo: 'Anteproyectos', url: '/anteproyectos' },
-      { titulo: 'Proyectos', url: '/proyectos' },
-      { titulo: 'Documentos Finales', url: '/docFinales' },
+      { titulo: 'Anteproyectos', url: '/Admin-anteproyecto' },
+      { titulo: 'Proyectos', url: '/Admin-proyecto' },
+      { titulo: 'Documentos Finales', url: '/Admin-docfinal' },
       
     ]
   },

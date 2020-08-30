@@ -13,7 +13,7 @@ export class ProyectoComponent implements OnInit {
   info:any;
   nombreArchivo: string;
   MAX_SIZE_FILE: number = 25000000;
-  anteproyecto = new FormData();
+  proyecto = new FormData();
 
   constructor(private subirArchivoservice: SubirArchivoService) { }
 
@@ -42,8 +42,8 @@ export class ProyectoComponent implements OnInit {
       });
     }else {
       this.nombreArchivo = file.name;
-      let anteproyecto = <File>file;
-      this.anteproyecto.append('anteproyecto',anteproyecto,anteproyecto.name);
+      let proyecto = <File>file;
+      this.proyecto.append('proyecto',proyecto,proyecto.name);
 
     }
     
@@ -67,7 +67,7 @@ export class ProyectoComponent implements OnInit {
         let idEstudiante = JSON.parse(localStorage.getItem('estudiante'))._id;
 
           // call service
-        this.subirArchivoservice.uploadFile(idEstudiante,this.anteproyecto).subscribe();
+        this.subirArchivoservice.uploadFile(idEstudiante,this.proyecto).subscribe();
         
 
       }

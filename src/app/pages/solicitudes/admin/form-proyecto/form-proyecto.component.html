@@ -45,7 +45,7 @@
                                     </div>
                                     <div class="row" style=" margin-top: 15px; margin-left: 25px;">
                                         <h5 class="text-uppercase"> <b>PLANTEAMIENTO DEL PROBLEMA :</b> </h5>
-                                        <textarea ngModel name="problema" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="{{formulario?.linea_investigacion}}" disabled></textarea>
+                                        <textarea ngModel name="problema" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="{{formulario?.formulacion_problema}}" disabled></textarea>
 
                                     </div>
                                     <div class="row" style=" margin-top: 15px; margin-left: 25px;">
@@ -71,24 +71,24 @@
                                 </div>
 
                                 <div class="row" style=" margin-top: 15px; margin-left: 25px;">
-                                    <h5 class="text-uppercase"> <b>Tutor de Pasantía:</b> </h5>
+                                    <h5 class="text-uppercase"> <b>Tutor de Proyecto de grado:</b> </h5>
                                 </div>
-                                <!-- 
-                                    <ng-container *ngIf="formulario?.tutor == null">
-                                        <div class="row" style="margin-left: 25px; margin-top: 0px;">
-                                            <span class="label btnDanger"> <b> No Asignado</b></span>
 
-                                        </div>
-                                        <a>(Tutor escogido por el estudiante :  {{formulario?.director_proyecto}})</a>
-                                    </ng-container>
+                                <ng-container *ngIf="formulario?.tutor == null">
+                                    <div class="row" style="margin-left: 25px; margin-top: 0px;">
+                                        <span class="label btnDanger"> <b> No Asignado</b></span>
 
-                                    <ng-container *ngIf="formulario?.tutor != null">
-                                        <div class="row" style="margin-left: 25px; margin-top: 0px;">
-                                            <span class="label btnSuccess"> <b>{{tutorNombres}}
+                                    </div>
+                                    <a>(Tutor escogido por el estudiante :  {{formulario?.director_proyecto}})</a>
+                                </ng-container>
+
+                                <ng-container *ngIf="formulario?.tutor != null">
+                                    <div class="row" style="margin-left: 25px; margin-top: 0px;">
+                                        <span class="label btnSuccess"> <b>{{tutorNombres}}
                                                     {{tutorApellidos}}</b></span>
-                                        </div>
-                                    </ng-container>
--->
+                                    </div>
+                                </ng-container>
+
                                 <br><br>
 
                                 <form ngNativeValidate #actualizar="ngForm" (ngSubmit)="putSolicitud(actualizar)" class="form-horizontal" id="loginform" style="padding-left: 20px;">
@@ -183,7 +183,7 @@
                                     {{dato?.titulo_proyecto}}
                                     </small><br>
                                 <small><i class="fa fa-file-pdf-o"></i>&nbsp;
-                                        &nbsp;{{dato.estado}}
+                                        &nbsp;{{dato.linea_investigacion }}
                                     </small> <br>
                             </div>
                         </div>

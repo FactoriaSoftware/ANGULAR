@@ -23,8 +23,6 @@ export class AdminAnteproyectoComponent implements OnInit {
   estado: string;
   notas: string;
   tutor: string[];
-
-  letra: string;
   titulo: string;
   //empresa: string;
   //ubicacion: string;
@@ -33,10 +31,13 @@ export class AdminAnteproyectoComponent implements OnInit {
   tutores: any[] = [];
   tutorNombres: string;
   tutorApellidos: string;
-  estado_propuesta: string;
+  estado_anteproyecto: string;
   notas_propuesta: string;
 
+ 
+
 //-----Estudiante Principal-------//
+  idEstudiante: string;
   nombreEst: string;
   apellidoEst: string;
   codigoEst: string;
@@ -49,11 +50,8 @@ export class AdminAnteproyectoComponent implements OnInit {
   
 
   preInscripcion: any;
- 
- 
- 
 
-  
+  tutor_id : string;
 
 
 
@@ -82,7 +80,7 @@ export class AdminAnteproyectoComponent implements OnInit {
       if (result.value) {
 
         let solicitud = new Solicitud (null,null,null,null,null,null,null,null,null,null,null,null,null,null,
-          null,null,null,null,null,null,null,null,null,null,null,form.value.notas,form.value.estado)
+          null,null,this.tutor_id,null,form.value.estado_anteproyecto,null,null,null,null,null,null,null,form.value.notas,"Aprobada")
         this.proyectoGradoService.putSolicitud(this._id, solicitud).subscribe();
 
       }
@@ -112,6 +110,7 @@ export class AdminAnteproyectoComponent implements OnInit {
     } else {
       this.tutorNombres = data.tutor.nombres;
       this.tutorApellidos = data.tutor.apellidos;
+      this.tutor_id = data.tutor._id;
     }
 
     
@@ -121,6 +120,10 @@ export class AdminAnteproyectoComponent implements OnInit {
     this.codigoEst = data.estudiante.codigo;
     this.idEst = data.estudiante.identificacion;
     this.correoEst = data.estudiante.correo;
+    this.idEstudiante = data.estudiante._id;
+
+    this.estado_anteproyecto = data.estado_anteproyecto;
+
 
         
   }
