@@ -26,10 +26,9 @@ export class FormProyectoComponent implements OnInit {
 
   letra: string;
   titulo: string;
-  //empresa: string;
-  //ubicacion: string;
+
   modalidad: string;
-  //tutores: string;
+
   tutores: any[] = [];
   tutorNombres: string;
   tutorApellidos: string;

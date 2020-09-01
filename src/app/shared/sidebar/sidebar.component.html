@@ -36,13 +36,90 @@
         <nav class="sidebar-nav">
             <ul id="sidebarnav">
                 <li class="nav-small-cap"><b>Modulo Proyecto de Grado</b> </li>
+                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
+                    class="fa fa-check-square-o"></i><span class="hide-menu">Formulario de Inscripción</span></a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li><a class="isDisabled" routerLink="/dashboard" routerLinkActive="active">Enviar
+                        Formulario de Inscripción
+                    </a></li>
+                    </ul>
+                </li>
+                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
+                    class="fa fa-book"></i><span class="hide-menu">Anteproyecto</span></a>
+                    <ul aria-expanded="false" class="collapse">
+
+                        <li *ngIf="!EstadoPreInsc"><a class="isDisabled" routerLink="/dashboard" routerLinkActive="active">Enviar Anteproyecto
+                        </a></li>
+
+                        <li *ngIf="EstadoPreInsc ==='Rechazada'"><a class="isDisabled" routerLink="/dashboard" routerLinkActive="active">Enviar Anteproyecto
+                    </a></li>
+
+                        <li *ngIf="EstadoPreInsc ==='Enviada'"><a class="isDisabled" routerLink="/dashboard" routerLinkActive="active">Enviar Anteproyecto
+                    </a></li>
+
+                        <li *ngIf="EstadoPreInsc ==='Aprobada'"><a routerLink="/anteproyecto" routerLinkActive="active">Enviar Anteproyecto
+                    </a></li>
+
+
+                    </ul>
+                </li>
+
+                <!-- ============================================================== -->
+                <!--                Bloqueo de  Envío de documentos                 -->
+                <!-- ============================================================== -->
+                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
+                    class="fa fa-file-pdf-o"></i><span class="hide-menu">Proyecto</span></a>
+                    <ul aria-expanded="false" class="collapse">
+
+                        <li *ngIf="!EstadoAnte"><a class="isDisabled" routerLink="/dashboard" routerLinkActive="active">Enviar Proyecto
+                    </a></li>
+
+                        <li *ngIf="EstadoAnte ==='Rechazada'"><a class="isDisabled" routerLink="/dashboard" routerLinkActive="active">Enviar Proyecto
+                    </a></li>
+
+                        <li *ngIf="EstadoAnte ==='Enviada'"><a class="isDisabled" routerLink="/dashboard" routerLinkActive="active">Enviar Proyecto
+                    </a></li>
+
+                        <li *ngIf="EstadoAnte ==='Aprobada'"><a routerLink="/proyecto" routerLinkActive="active">Enviar Proyecto
+                    </a></li>
+
+                    </ul>
+                </li>
+                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
+                    class="fa fa-file-text-o"></i><span class="hide-menu">Documento Final</span></a>
+                    <ul aria-expanded="false" class="collapse">
+
+
+                        <li *ngIf="!EstadoProy"><a class="isDisabled" routerLink="/dashboard" routerLinkActive="active">Enviar Documento Final
+                    </a></li>
+
+                        <li *ngIf="EstadoProy ==='Rechazada'"><a class="isDisabled" routerLink="/dashboard" routerLinkActive="active">Enviar Documento Final
+                    </a></li>
+
+                        <li *ngIf="EstadoProy ==='Enviada'"><a class="isDisabled" routerLink="/dashboard" routerLinkActive="active">Enviar Documento Final
+                    </a></li>
+
+                        <li *ngIf="EstadoProy ==='Aprobada'"><a routerLink="/documento-final" routerLinkActive="active">Enviar Documento Final
+                    </a></li>
+
+                    </ul>
+                </li>
+                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
+                    class="fa fa-info-circle"></i><span class="hide-menu">Seguimiento</span></a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li><a routerLink="/seguimiento-proyecto-de-grado" routerLinkActive="active">Ver estado</a></li>
+                    </ul>
+                </li>
+                <!-- menu viejo
                 <li *ngFor="let menu of menuEstudiante"> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="{{menu.icono}}"></i>&nbsp;<span
                             class="hide-menu">{{menu.titulo}}
                         </span></a>
                     <ul aria-expanded="false" class="collapse">
                         <li *ngFor="let submenu of menu.submenu"><a [routerLink]="[submenu.url]" routerLinkActive="active">{{submenu.titulo}} </a></li>
                     </ul>
-                </li>
+                </li>-->
+
+
             </ul>
         </nav>
     </div>

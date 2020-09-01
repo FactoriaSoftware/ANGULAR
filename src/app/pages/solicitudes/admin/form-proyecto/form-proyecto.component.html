@@ -112,7 +112,7 @@
                                                 <label class="control-label">
                                                         <h5 class="text-uppercase"> <b>Notas:</b> </h5>
                                                     </label>
-                                                <input [(ngModel)]="estado" name="estado" type="text" id="firstName" class="form-control" placeholder="Notas Para el Estudiante">
+                                                <input [(ngModel)]="notas" name="notas" type="text" id="firstName" class="form-control" placeholder="Notas Para el Estudiante">
                                             </div>
                                         </div>
 
@@ -179,10 +179,10 @@
                             <div class="vacantes">
                                 <h5 class="text-uppercase"> <b>{{ dato.estudiante.nombres }}
                                             {{ dato.estudiante.apellidos }}</b></h5>
-                                <small style="margin-top: -50px;"><i class="fa fa-briefcase"></i> &nbsp;
+                                <small style="margin-top: -50px;"><i class="fa fa-align-justify"></i> &nbsp;
                                     {{dato?.titulo_proyecto}}
                                     </small><br>
-                                <small><i class="fa fa-file-pdf-o"></i>&nbsp;
+                                <small><i class="fa fa-tasks"></i>&nbsp;
                                         &nbsp;{{dato.linea_investigacion }}
                                     </small> <br>
                             </div>

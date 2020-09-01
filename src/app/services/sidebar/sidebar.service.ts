@@ -98,7 +98,7 @@ menuTutor: any = [
     titulo: 'Proyecto de Grado',
     icono: 'fa fa-book',
     submenu: [
-      { titulo: 'Dashboard', url: '/dashboard' },
+      { titulo: 'Dashboard', url: '/Admin-anteproyecto' },
       { titulo: 'Progress Bar', url: '/progress' },
       { titulo: 'Graficas', url: '/graficas1' },
       { titulo: 'Promesas', url: '/promesas' },

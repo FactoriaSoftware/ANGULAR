@@ -32,7 +32,7 @@ export class AdminAnteproyectoComponent implements OnInit {
   tutorNombres: string;
   tutorApellidos: string;
   estado_anteproyecto: string;
-  notas_propuesta: string;
+  notaAnteproyecto: string;
 
  
 
@@ -80,7 +80,7 @@ export class AdminAnteproyectoComponent implements OnInit {
       if (result.value) {
 
         let solicitud = new Solicitud (null,null,null,null,null,null,null,null,null,null,null,null,null,null,
-          null,null,this.tutor_id,null,form.value.estado_anteproyecto,null,null,null,null,null,null,null,form.value.notas,"Aprobada")
+          null,null,this.tutor_id,null,form.value.estado_anteproyecto,form.value.notaAnteproyecto,null,null,null,null,null,null,form.value.notas,"Aprobada")
         this.proyectoGradoService.putSolicitud(this._id, solicitud).subscribe();
 
       }
@@ -123,6 +123,7 @@ export class AdminAnteproyectoComponent implements OnInit {
     this.idEstudiante = data.estudiante._id;
 
     this.estado_anteproyecto = data.estado_anteproyecto;
+    this.notaAnteproyecto = data.notaAnteproyecto;
 
 
         
